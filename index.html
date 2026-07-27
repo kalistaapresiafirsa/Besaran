@@ -589,6 +589,67 @@
             display: block;
         }
 
+        /* TAMBAHAN: FUNGSI LAIN ANALISIS DIMENSI */
+        .fungsi-lain-box {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .fungsi-lain-box h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #0b1a2e;
+        }
+
+        .fungsi-lain-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .fungsi-lain-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            border-left: 4px solid #8b5cf6;
+            transition: all 0.2s;
+        }
+
+        .fungsi-lain-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .fungsi-lain-item .title-fungsi {
+            font-weight: 700;
+            color: #5b21b6;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .fungsi-lain-item .title-fungsi i {
+            font-size: 0.9rem;
+        }
+
+        .fungsi-lain-item .desc-fungsi {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .fungsi-lain-item .example-fungsi {
+            font-size: 0.85rem;
+            background: #f3f4f6;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            margin-top: 0.4rem;
+            font-family: 'Courier New', monospace;
+            color: #1e293b;
+        }
+
         .latihan-box {
             background: #f8fafc;
             border-radius: 14px;
@@ -703,6 +764,9 @@
                 grid-template-columns: 1fr;
             }
             .dimensi-grid {
+                grid-template-columns: 1fr;
+            }
+            .fungsi-lain-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -865,6 +929,50 @@
 
                 <div style="margin-top:0.8rem; background:#f1f5f9; border-radius:10px; padding:0.6rem 1rem; font-size:0.9rem;">
                     <i class="fas fa-arrow-right" style="color:#2563eb;"></i> <strong>Langkah:</strong> 1. Tulis rumus → 2. Ganti setiap besaran dengan dimensinya → 3. Sederhanakan.
+                </div>
+            </div>
+        </div>
+
+        <!-- TAMBAHAN: FUNGSI LAIN ANALISIS DIMENSI -->
+        <div class="fungsi-lain-box">
+            <h3><i class="fas fa-expand-arrows-alt" style="color:#8b5cf6; margin-right:0.5rem;"></i> Fungsi Lain Analisis Dimensi</h3>
+            <p style="font-size:0.9rem; color:#475569; margin-bottom:1rem;">Selain fungsi utama, analisis dimensi juga dapat digunakan untuk hal-hal berikut:</p>
+            
+            <div class="fungsi-lain-grid">
+                <div class="fungsi-lain-item">
+                    <div class="title-fungsi"><i class="fas fa-calculator" style="color:#8b5cf6;"></i> Menentukan Konstanta tak berdimensi</div>
+                    <div class="desc-fungsi">Membantu mengidentifikasi apakah suatu konstanta memiliki dimensi atau tidak. Konstanta tak berdimensi tidak mempengaruhi homogenitas.</div>
+                    <div class="example-fungsi">Contoh: ½ pada rumus s = v₀t + ½at² adalah konstanta tak berdimensi</div>
+                </div>
+                
+                <div class="fungsi-lain-item">
+                    <div class="title-fungsi"><i class="fas fa-arrows-left-right" style="color:#8b5cf6;"></i> Mengubah Satuan Antar Sistem</div>
+                    <div class="desc-fungsi">Dimensi memungkinkan konversi satuan antar sistem (MKS, CGS, atau sistem lain) dengan menggunakan faktor konversi.</div>
+                    <div class="example-fungsi">Contoh: 1 N = 10⁵ dyne (karena gaya memiliki dimensi [M][L][T]⁻²)</div>
+                </div>
+                
+                <div class="fungsi-lain-item">
+                    <div class="title-fungsi"><i class="fas fa-search-plus" style="color:#8b5cf6;"></i> Memeriksa Konsistensi Persamaan</div>
+                    <div class="desc-fungsi">Memastikan bahwa semua suku dalam persamaan memiliki dimensi yang sama, termasuk suku-suku dalam operasi matematika kompleks.</div>
+                    <div class="example-fungsi">Contoh: Dalam persamaan gelombang y = A sin(kx - ωt), semua suku dalam fungsi sinus harus tak berdimensi.</div>
+                </div>
+                
+                <div class="fungsi-lain-item">
+                    <div class="title-fungsi"><i class="fas fa-arrow-right-arrow-left" style="color:#8b5cf6;"></i> Menentukan Hubungan Skala</div>
+                    <div class="desc-fungsi">Membantu menentukan bagaimana suatu besaran berubah jika besaran lain diubah skalanya (analisis skala).</div>
+                    <div class="example-fungsi">Contoh: Jika panjang diperbesar 2×, maka luas akan menjadi 4× karena [L]², volume menjadi 8× karena [L]³</div>
+                </div>
+                
+                <div class="fungsi-lain-item" style="border-left-color: #ec4899;">
+                    <div class="title-fungsi"><i class="fas fa-chart-line" style="color:#ec4899;"></i> Menentukan Pangkat dalam Hubungan</div>
+                    <div class="desc-fungsi">Membantu menentukan eksponen dalam hubungan antar besaran yang belum diketahui bentuknya.</div>
+                    <div class="example-fungsi">Contoh: Jika T = k · mᵃ · lᵇ · gᶜ, analisis dimensi dapat menentukan nilai a, b, dan c.</div>
+                </div>
+                
+                <div class="fungsi-lain-item" style="border-left-color: #ec4899;">
+                    <div class="title-fungsi"><i class="fas fa-exclamation-triangle" style="color:#ec4899;"></i> Mengidentifikasi Kesalahan Konsep</div>
+                    <div class="desc-fungsi">Membantu menemukan kesalahan konsep dalam rumus fisika yang sering dianggap benar tetapi secara dimensional tidak konsisten.</div>
+                    <div class="example-fungsi">Contoh: Rumus v = at² + v₀ akan terdeteksi salah secara dimensional</div>
                 </div>
             </div>
         </div>
