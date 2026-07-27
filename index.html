@@ -1028,46 +1028,104 @@
             </div>
         </div>
 
-        <!-- TAMBAHAN: FUNGSI LAIN ANALISIS DIMENSI -->
+        <!-- TAMBAHAN: FUNGSI LAIN ANALISIS DIMENSI dengan contoh tersembunyi -->
         <div class="fungsi-lain-box">
             <h3><i class="fas fa-expand-arrows-alt" style="color:#b8860b; margin-right:0.5rem;"></i> Fungsi Lain Analisis Dimensi</h3>
-            <p style="font-size:1.05rem; color:#1a1a2e; margin-bottom:1rem;">Selain fungsi utama, analisis dimensi juga dapat digunakan untuk hal-hal berikut:</p>
+            <p style="font-size:1.05rem; color:#1a1a2e; margin-bottom:1rem;">Berikut adalah fungsi-fungsi lain dari analisis dimensi beserta contohnya. Klik tombol untuk melihat pembahasan.</p>
             
             <div class="fungsi-lain-grid">
+                <!-- Fungsi 1: Konstanta tak berdimensi -->
                 <div class="fungsi-lain-item">
                     <div class="title-fungsi"><i class="fas fa-calculator"></i> Menentukan Konstanta tak berdimensi</div>
-                    <div class="desc-fungsi">Membantu mengidentifikasi apakah suatu konstanta memiliki dimensi atau tidak. Konstanta tak berdimensi tidak mempengaruhi homogenitas.</div>
-                    <div class="example-fungsi">Contoh: ½ pada rumus s = v₀t + ½at² adalah konstanta tak berdimensi</div>
+                    <div class="desc-fungsi">Mengidentifikasi konstanta yang tidak memiliki dimensi (seperti ½, π, atau bilangan murni). Konstanta ini tidak mempengaruhi homogenitas rumus.</div>
+                    <div class="example-fungsi">
+                        <strong>Contoh:</strong> Dalam rumus s = v₀t + ½at², angka ½ tidak memiliki dimensi.
+                    </div>
+                    <button class="toggle-btn" style="margin-top:0.5rem; background:#1a1a2e; border:2px solid #ffd700; color:#ffd700; font-weight:700; cursor:pointer; font-size:0.85rem; padding:0.3rem 1rem; border-radius:40px;" onclick="toggleJawaban('fungsi1')"><i class="fas fa-eye"></i> Lihat Penjelasan</button>
+                    <div id="fungsi1" class="jawaban-content">
+                        <div style="background:#e8f5e8; padding:0.6rem 1rem; border-radius:8px; border-left:4px solid #2d7d2d;">
+                            <strong>Penjelasan:</strong> Angka ½ pada rumus s = v₀t + ½at² adalah konstanta tak berdimensi. Dimensi ruas kanan: ([L][T]⁻¹)([T]) + (½)([L][T]⁻²)([T]²) = [L] + ½[L] = [L]. Angka ½ tidak mengubah dimensi.
+                        </div>
+                    </div>
                 </div>
                 
+                <!-- Fungsi 2: Mengubah Satuan -->
                 <div class="fungsi-lain-item">
                     <div class="title-fungsi"><i class="fas fa-arrows-left-right"></i> Mengubah Satuan Antar Sistem</div>
-                    <div class="desc-fungsi">Dimensi memungkinkan konversi satuan antar sistem (MKS, CGS, atau sistem lain) dengan menggunakan faktor konversi.</div>
-                    <div class="example-fungsi">Contoh: 1 N = 10⁵ dyne (karena gaya memiliki dimensi [M][L][T]⁻²)</div>
+                    <div class="desc-fungsi">Dimensi memungkinkan konversi satuan antar sistem (MKS ke CGS atau sebaliknya) dengan menggunakan faktor konversi.</div>
+                    <div class="example-fungsi">
+                        <strong>Contoh:</strong> 1 Newton (N) = 100.000 dyne (karena 1 N = 1 kg·m/s²)
+                    </div>
+                    <button class="toggle-btn" style="margin-top:0.5rem; background:#1a1a2e; border:2px solid #ffd700; color:#ffd700; font-weight:700; cursor:pointer; font-size:0.85rem; padding:0.3rem 1rem; border-radius:40px;" onclick="toggleJawaban('fungsi2')"><i class="fas fa-eye"></i> Lihat Penjelasan</button>
+                    <div id="fungsi2" class="jawaban-content">
+                        <div style="background:#e8f5e8; padding:0.6rem 1rem; border-radius:8px; border-left:4px solid #2d7d2d;">
+                            <strong>Penjelasan:</strong> Gaya memiliki dimensi [M][L][T]⁻². 1 N = 1 kg·m/s². Dalam CGS: 1 kg = 1000 g, 1 m = 100 cm, sehingga 1 N = 1000 g × 100 cm/s² = 100.000 g·cm/s² = 100.000 dyne.
+                        </div>
+                    </div>
                 </div>
                 
+                <!-- Fungsi 3: Konsistensi Persamaan -->
                 <div class="fungsi-lain-item">
                     <div class="title-fungsi"><i class="fas fa-search-plus"></i> Memeriksa Konsistensi Persamaan</div>
-                    <div class="desc-fungsi">Memastikan bahwa semua suku dalam persamaan memiliki dimensi yang sama, termasuk suku-suku dalam operasi matematika kompleks.</div>
-                    <div class="example-fungsi">Contoh: Dalam persamaan gelombang y = A sin(kx - ωt), semua suku dalam fungsi sinus harus tak berdimensi.</div>
+                    <div class="desc-fungsi">Memastikan semua suku dalam persamaan memiliki dimensi yang sama, termasuk suku-suku dalam operasi matematika.</div>
+                    <div class="example-fungsi">
+                        <strong>Contoh:</strong> Dalam rumus F = ma, semua suku harus konsisten secara dimensional.
+                    </div>
+                    <button class="toggle-btn" style="margin-top:0.5rem; background:#1a1a2e; border:2px solid #ffd700; color:#ffd700; font-weight:700; cursor:pointer; font-size:0.85rem; padding:0.3rem 1rem; border-radius:40px;" onclick="toggleJawaban('fungsi3')"><i class="fas fa-eye"></i> Lihat Penjelasan</button>
+                    <div id="fungsi3" class="jawaban-content">
+                        <div style="background:#e8f5e8; padding:0.6rem 1rem; border-radius:8px; border-left:4px solid #2d7d2d;">
+                            <strong>Penjelasan:</strong> F memiliki dimensi [M][L][T]⁻². ma = massa × percepatan = [M] × [L][T]⁻² = [M][L][T]⁻². Kedua ruas memiliki dimensi yang sama → persamaan konsisten.
+                        </div>
+                    </div>
                 </div>
                 
+                <!-- Fungsi 4: Hubungan Skala -->
                 <div class="fungsi-lain-item">
                     <div class="title-fungsi"><i class="fas fa-arrow-right-arrow-left"></i> Menentukan Hubungan Skala</div>
-                    <div class="desc-fungsi">Membantu menentukan bagaimana suatu besaran berubah jika besaran lain diubah skalanya (analisis skala).</div>
-                    <div class="example-fungsi">Contoh: Jika panjang diperbesar 2×, maka luas akan menjadi 4× karena [L]², volume menjadi 8× karena [L]³</div>
+                    <div class="desc-fungsi">Menentukan bagaimana suatu besaran berubah jika besaran lain diubah skalanya (analisis skala).</div>
+                    <div class="example-fungsi">
+                        <strong>Contoh:</strong> Jika panjang sisi kubus diperbesar 2×, maka volumenya menjadi 8× lipat.
+                    </div>
+                    <button class="toggle-btn" style="margin-top:0.5rem; background:#1a1a2e; border:2px solid #ffd700; color:#ffd700; font-weight:700; cursor:pointer; font-size:0.85rem; padding:0.3rem 1rem; border-radius:40px;" onclick="toggleJawaban('fungsi4')"><i class="fas fa-eye"></i> Lihat Penjelasan</button>
+                    <div id="fungsi4" class="jawaban-content">
+                        <div style="background:#e8f5e8; padding:0.6rem 1rem; border-radius:8px; border-left:4px solid #2d7d2d;">
+                            <strong>Penjelasan:</strong> Volume memiliki dimensi [L]³. Jika panjang (s) diperbesar 2×, maka volume baru = (2s)³ = 8s³. Jadi volume menjadi 8× lipat.
+                        </div>
+                    </div>
                 </div>
                 
+                <!-- Fungsi 5: Menentukan Pangkat -->
                 <div class="fungsi-lain-item" style="border-left-color: #8b6914;">
                     <div class="title-fungsi"><i class="fas fa-chart-line"></i> Menentukan Pangkat dalam Hubungan</div>
-                    <div class="desc-fungsi">Membantu menentukan eksponen dalam hubungan antar besaran yang belum diketahui bentuknya.</div>
-                    <div class="example-fungsi">Contoh: Jika T = k · mᵃ · lᵇ · gᶜ, analisis dimensi dapat menentukan nilai a, b, dan c.</div>
+                    <div class="desc-fungsi">Menentukan eksponen dalam hubungan antar besaran yang belum diketahui bentuknya.</div>
+                    <div class="example-fungsi">
+                        <strong>Contoh:</strong> Tentukan pangkat a, b, c pada T = k · mᵃ · lᵇ · gᶜ (periode bandul).
+                    </div>
+                    <button class="toggle-btn" style="margin-top:0.5rem; background:#1a1a2e; border:2px solid #ffd700; color:#ffd700; font-weight:700; cursor:pointer; font-size:0.85rem; padding:0.3rem 1rem; border-radius:40px;" onclick="toggleJawaban('fungsi5')"><i class="fas fa-eye"></i> Lihat Penjelasan</button>
+                    <div id="fungsi5" class="jawaban-content">
+                        <div style="background:#e8f5e8; padding:0.6rem 1rem; border-radius:8px; border-left:4px solid #2d7d2d;">
+                            <strong>Penjelasan:</strong> T (waktu) = [T], m (massa) = [M], l (panjang) = [L], g (percepatan) = [L][T]⁻².<br>
+                            [T] = [M]ᵃ [L]ᵇ ([L][T]⁻²)ᶜ = [M]ᵃ [L]ᵇ⁺ᶜ [T]⁻²ᶜ.<br>
+                            Dari persamaan: a = 0, b + c = 0, -2c = 1 → c = -½, b = ½.<br>
+                            Jadi T = k · l^(½) · g^(-½) = k · √(l/g).
+                        </div>
+                    </div>
                 </div>
                 
+                <!-- Fungsi 6: Identifikasi Kesalahan -->
                 <div class="fungsi-lain-item" style="border-left-color: #8b6914;">
                     <div class="title-fungsi"><i class="fas fa-exclamation-triangle"></i> Mengidentifikasi Kesalahan Konsep</div>
-                    <div class="desc-fungsi">Membantu menemukan kesalahan konsep dalam rumus fisika yang sering dianggap benar tetapi secara dimensional tidak konsisten.</div>
-                    <div class="example-fungsi">Contoh: Rumus v = at² + v₀ akan terdeteksi salah secara dimensional</div>
+                    <div class="desc-fungsi">Menemukan kesalahan konsep dalam rumus yang sering dianggap benar tetapi secara dimensional tidak konsisten.</div>
+                    <div class="example-fungsi">
+                        <strong>Contoh:</strong> Periksa rumus v = at² + v₀ (kecepatan = percepatan × waktu² + kecepatan awal)
+                    </div>
+                    <button class="toggle-btn" style="margin-top:0.5rem; background:#1a1a2e; border:2px solid #ffd700; color:#ffd700; font-weight:700; cursor:pointer; font-size:0.85rem; padding:0.3rem 1rem; border-radius:40px;" onclick="toggleJawaban('fungsi6')"><i class="fas fa-eye"></i> Lihat Penjelasan</button>
+                    <div id="fungsi6" class="jawaban-content">
+                        <div style="background:#fde8e8; padding:0.6rem 1rem; border-radius:8px; border-left:4px solid #cc3333;">
+                            <strong>Penjelasan:</strong> Ruas kiri v = [L][T]⁻¹. Ruas kanan: at² = ([L][T]⁻²)([T]²) = [L] ❌ (bukan [L][T]⁻¹).<br>
+                            Karena dimensi ruas kiri ≠ ruas kanan, maka rumus ini <strong>pasti salah</strong> secara dimensional.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1403,13 +1461,13 @@
         }
     }
 
-    // --- CONTOH TOGGLE ---
+    // --- CONTOH TOGGLE (untuk semua fungsi) ---
     function toggleJawaban(id) {
         const el = document.getElementById(id);
         const btn = el.parentElement.querySelector('.toggle-btn');
         if (el.classList.contains('show')) {
             el.classList.remove('show');
-            btn.innerHTML = '<i class="fas fa-eye"></i> Lihat Pembahasan';
+            btn.innerHTML = '<i class="fas fa-eye"></i> Lihat Penjelasan';
         } else {
             el.classList.add('show');
             btn.innerHTML = '<i class="fas fa-eye-slash"></i> Sembunyikan';
