@@ -562,6 +562,33 @@
             font-family: 'Courier New', monospace;
         }
 
+        .contoh-item .toggle-btn {
+            background: none;
+            border: none;
+            color: #2563eb;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            transition: background 0.15s;
+        }
+
+        .contoh-item .toggle-btn:hover {
+            background: #eef2ff;
+        }
+
+        .contoh-item .jawaban-content {
+            display: none;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .contoh-item .jawaban-content.show {
+            display: block;
+        }
+
         .latihan-box {
             background: #f8fafc;
             border-radius: 14px;
@@ -802,27 +829,40 @@
             <!-- Contoh Analisis Dimensi -->
             <div class="contoh-box">
                 <h3><i class="fas fa-pencil-alt" style="color:#2563eb; margin-right:0.5rem;"></i> Contoh Analisis Dimensi</h3>
+                
                 <div class="contoh-item">
                     <div class="soal">1. Periksa rumus: v = v₀ + at</div>
-                    <div class="jawaban">
-                        <strong>Dimensi:</strong> [L][T]⁻¹ = [L][T]⁻¹ + ([L][T]⁻²)([T]) = [L][T]⁻¹ ✅ <br>
-                        <span style="color:#166534;">→ Rumus homogen (benar secara dimensional).</span>
+                    <button class="toggle-btn" onclick="toggleJawaban('contoh1')"><i class="fas fa-eye"></i> Lihat Pembahasan</button>
+                    <div id="contoh1" class="jawaban-content">
+                        <div class="jawaban">
+                            <strong>Dimensi:</strong> [L][T]⁻¹ = [L][T]⁻¹ + ([L][T]⁻²)([T]) = [L][T]⁻¹ ✅<br>
+                            <span style="color:#166534;">→ Rumus homogen (benar secara dimensional).</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="contoh-item">
                     <div class="soal">2. Periksa rumus: s = v₀t + ½a²t</div>
-                    <div class="jawaban">
-                        <strong>Dimensi:</strong> [L] = ([L][T]⁻¹)([T]) + ([L][T]⁻²)²([T]) = [L] + [L]²[T]⁻³ ❌ <br>
-                        <span style="color:#991b1b;">→ Tidak homogen (pasti salah).</span>
+                    <button class="toggle-btn" onclick="toggleJawaban('contoh2')"><i class="fas fa-eye"></i> Lihat Pembahasan</button>
+                    <div id="contoh2" class="jawaban-content">
+                        <div class="jawaban">
+                            <strong>Dimensi:</strong> [L] = ([L][T]⁻¹)([T]) + ([L][T]⁻²)²([T]) = [L] + [L]²[T]⁻³ ❌<br>
+                            <span style="color:#991b1b;">→ Tidak homogen (pasti salah).</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="contoh-item">
                     <div class="soal">3. Tentukan dimensi Daya (P)</div>
-                    <div class="jawaban">
-                        <strong>Rumus:</strong> P = Usaha / waktu = (gaya × perpindahan) / waktu <br>
-                        <span class="dim">Dimensi: [M][L]²[T]⁻³</span>
+                    <button class="toggle-btn" onclick="toggleJawaban('contoh3')"><i class="fas fa-eye"></i> Lihat Pembahasan</button>
+                    <div id="contoh3" class="jawaban-content">
+                        <div class="jawaban">
+                            <strong>Rumus:</strong> P = Usaha / waktu = (gaya × perpindahan) / waktu<br>
+                            <span class="dim">Dimensi: [M][L]²[T]⁻³</span>
+                        </div>
                     </div>
                 </div>
+
                 <div style="margin-top:0.8rem; background:#f1f5f9; border-radius:10px; padding:0.6rem 1rem; font-size:0.9rem;">
                     <i class="fas fa-arrow-right" style="color:#2563eb;"></i> <strong>Langkah:</strong> 1. Tulis rumus → 2. Ganti setiap besaran dengan dimensinya → 3. Sederhanakan.
                 </div>
@@ -832,41 +872,49 @@
         <!-- SOAL LATIHAN ANALISIS DIMENSI -->
         <div class="latihan-box">
             <h3><i class="fas fa-tasks" style="color:#2563eb; margin-right:0.5rem;"></i> Soal Latihan Analisis Dimensi</h3>
-            <p style="font-size:0.9rem; color:#475569; margin-bottom:1rem;">Klik tombol "Cek" untuk melihat jawaban dan pembahasan.</p>
+            <p style="font-size:0.9rem; color:#475569; margin-bottom:1rem;">Kerjakan soal berikut, lalu klik tombol "Lihat Pembahasan" untuk memeriksa jawabanmu.</p>
 
             <div class="latihan-item">
                 <span class="soal-lat">1. Tentukan dimensi dari <strong>Momentum</strong> (p = m × v)</span>
-                <button class="btn-pro primary small" onclick="toggleLatihan('lat1')">Cek Jawaban</button>
+                <button class="btn-pro primary small" onclick="toggleLatihan('lat1')">Lihat Pembahasan</button>
             </div>
             <div id="lat1" class="latihan-feedback">
-                <strong>Pembahasan:</strong> p = massa × kecepatan → [M] × [L][T]⁻¹ = <span class="dim" style="font-weight:700; color:#1e40af;">[M][L][T]⁻¹</span>
+                <strong>Pembahasan:</strong> p = massa × kecepatan → [M] × [L][T]⁻¹ = <span style="font-weight:700; color:#1e40af; font-family:'Courier New',monospace;">[M][L][T]⁻¹</span>
             </div>
 
             <div class="latihan-item">
                 <span class="soal-lat">2. Periksa homogenitas: F = m × a</span>
-                <button class="btn-pro primary small" onclick="toggleLatihan('lat2')">Cek Jawaban</button>
+                <button class="btn-pro primary small" onclick="toggleLatihan('lat2')">Lihat Pembahasan</button>
             </div>
             <div id="lat2" class="latihan-feedback">
-                <strong>Pembahasan:</strong> Dimensi F = [M][L][T]⁻², dimensi m×a = [M] × [L][T]⁻² = [M][L][T]⁻² ✅ <br>
+                <strong>Pembahasan:</strong> Dimensi F = [M][L][T]⁻², dimensi m×a = [M] × [L][T]⁻² = [M][L][T]⁻² ✅<br>
                 <span style="color:#166534;">→ Rumus homogen (benar secara dimensional).</span>
             </div>
 
             <div class="latihan-item">
                 <span class="soal-lat">3. Tentukan dimensi dari <strong>Impuls</strong> (I = F × t)</span>
-                <button class="btn-pro primary small" onclick="toggleLatihan('lat3')">Cek Jawaban</button>
+                <button class="btn-pro primary small" onclick="toggleLatihan('lat3')">Lihat Pembahasan</button>
             </div>
             <div id="lat3" class="latihan-feedback">
-                <strong>Pembahasan:</strong> I = gaya × waktu → [M][L][T]⁻² × [T] = <span class="dim" style="font-weight:700; color:#1e40af;">[M][L][T]⁻¹</span> <br>
+                <strong>Pembahasan:</strong> I = gaya × waktu → [M][L][T]⁻² × [T] = <span style="font-weight:700; color:#1e40af; font-family:'Courier New',monospace;">[M][L][T]⁻¹</span><br>
                 <span style="color:#475569;">(Impuls memiliki dimensi yang sama dengan momentum)</span>
             </div>
 
             <div class="latihan-item">
                 <span class="soal-lat">4. Periksa homogenitas: E = mc²</span>
-                <button class="btn-pro primary small" onclick="toggleLatihan('lat4')">Cek Jawaban</button>
+                <button class="btn-pro primary small" onclick="toggleLatihan('lat4')">Lihat Pembahasan</button>
             </div>
             <div id="lat4" class="latihan-feedback">
-                <strong>Pembahasan:</strong> E (energi) = [M][L]²[T]⁻², mc² = [M] × ([L][T]⁻¹)² = [M][L]²[T]⁻² ✅ <br>
+                <strong>Pembahasan:</strong> E (energi) = [M][L]²[T]⁻², mc² = [M] × ([L][T]⁻¹)² = [M][L]²[T]⁻² ✅<br>
                 <span style="color:#166534;">→ Rumus homogen (benar secara dimensional).</span>
+            </div>
+
+            <div class="latihan-item">
+                <span class="soal-lat">5. Tentukan dimensi dari <strong>Daya</strong> (P = W/t)</span>
+                <button class="btn-pro primary small" onclick="toggleLatihan('lat5')">Lihat Pembahasan</button>
+            </div>
+            <div id="lat5" class="latihan-feedback">
+                <strong>Pembahasan:</strong> P = Usaha / waktu → [M][L]²[T]⁻² / [T] = <span style="font-weight:700; color:#1e40af; font-family:'Courier New',monospace;">[M][L]²[T]⁻³</span>
             </div>
         </div>
     </div>
@@ -1149,6 +1197,19 @@
             el.classList.remove('show');
         } else {
             el.classList.add('show');
+        }
+    }
+
+    // --- CONTOH TOGGLE ---
+    function toggleJawaban(id) {
+        const el = document.getElementById(id);
+        const btn = el.parentElement.querySelector('.toggle-btn');
+        if (el.classList.contains('show')) {
+            el.classList.remove('show');
+            btn.innerHTML = '<i class="fas fa-eye"></i> Lihat Pembahasan';
+        } else {
+            el.classList.add('show');
+            btn.innerHTML = '<i class="fas fa-eye-slash"></i> Sembunyikan';
         }
     }
 
