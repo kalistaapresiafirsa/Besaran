@@ -451,6 +451,176 @@
             background: #16a34a;
         }
 
+        /* FUNGSI DIMENSI & ANALISIS DIMENSIONAL */
+        .dimensi-section {
+            background: white;
+            border-radius: 18px;
+            padding: 1.8rem 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(203, 213, 225, 0.25);
+        }
+
+        .dimensi-section .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dimensi-section .section-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .dimensi-section .section-header h2 i {
+            color: #2563eb;
+        }
+
+        .dimensi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .fungsi-box {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+
+        .fungsi-box h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #0b1a2e;
+        }
+
+        .fungsi-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fungsi-box ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eef2f6;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .fungsi-box ul li:last-child {
+            border-bottom: none;
+        }
+
+        .fungsi-box ul li i {
+            color: #2563eb;
+            margin-top: 0.15rem;
+            font-size: 0.9rem;
+            min-width: 1.2rem;
+        }
+
+        .contoh-box {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+
+        .contoh-box h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #0b1a2e;
+        }
+
+        .contoh-item {
+            background: white;
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid #2563eb;
+        }
+
+        .contoh-item .soal {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .contoh-item .jawaban {
+            color: #475569;
+            font-size: 0.9rem;
+        }
+
+        .contoh-item .jawaban .dim {
+            color: #1e40af;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        .latihan-box {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .latihan-box h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #0b1a2e;
+        }
+
+        .latihan-item {
+            background: white;
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .latihan-item .soal-lat {
+            font-weight: 500;
+        }
+
+        .latihan-item .btn-pro.small {
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+        }
+
+        .latihan-feedback {
+            margin-top: 0.5rem;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .latihan-feedback.show {
+            display: block;
+        }
+
+        .latihan-feedback.success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+        }
+
+        .latihan-feedback.error {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+        }
+
         /* REFERENSI */
         .ref-grid {
             display: grid;
@@ -505,6 +675,9 @@
             .game-grid {
                 grid-template-columns: 1fr;
             }
+            .dimensi-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 640px) {
@@ -526,6 +699,9 @@
             .game-stats {
                 flex-wrap: wrap;
                 gap: 0.8rem;
+            }
+            .dimensi-section {
+                padding: 1.2rem;
             }
         }
     </style>
@@ -601,6 +777,100 @@
         </div>
     </div>
 
+    <!-- FUNGSI DIMENSI & ANALISIS DIMENSIONAL -->
+    <div class="dimensi-section">
+        <div class="section-header">
+            <h2><i class="fas fa-ruler-combined"></i> Fungsi Dimensi & Analisis Dimensional</h2>
+            <span class="badge-pro" style="background:#dbeafe; color:#1e40af; padding:0.3rem 1.2rem; border-radius:40px; font-weight:700; font-size:0.8rem;">Homogenitas</span>
+        </div>
+
+        <div class="dimensi-grid">
+            <!-- Fungsi Dimensi -->
+            <div class="fungsi-box">
+                <h3><i class="fas fa-bullseye" style="color:#2563eb; margin-right:0.5rem;"></i> Fungsi Analisis Dimensi</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Memeriksa kebenaran rumus fisika</strong> — rumus dikatakan benar jika dimensi ruas kiri sama dengan ruas kanan (homogenitas).</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Menurunkan hubungan antar besaran</strong> — jika hubungan matematis belum diketahui, dimensi dapat membantu menemukan bentuk hubungan.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Menentukan satuan besaran baru</strong> — dari dimensi dapat diturunkan satuan dalam SI.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Membandingkan besaran fisika</strong> — untuk melihat apakah dua besaran dapat dijumlahkan atau dikurangkan (harus memiliki dimensi yang sama).</li>
+                </ul>
+                <div style="margin-top:0.8rem; background:#eef2ff; border-radius:10px; padding:0.6rem 1rem; font-size:0.9rem;">
+                    <i class="fas fa-lightbulb" style="color:#4338ca;"></i> <strong>Catatan:</strong> Analisis dimensi dapat membuktikan rumus <strong>salah</strong> (pasti salah jika dimensi tidak sama), tetapi <strong>tidak dapat membuktikan benar</strong> secara mutlak karena konstanta tak berdimensi tidak terdeteksi.
+                </div>
+            </div>
+
+            <!-- Contoh Analisis Dimensi -->
+            <div class="contoh-box">
+                <h3><i class="fas fa-pencil-alt" style="color:#2563eb; margin-right:0.5rem;"></i> Contoh Analisis Dimensi</h3>
+                <div class="contoh-item">
+                    <div class="soal">1. Periksa rumus: v = v₀ + at</div>
+                    <div class="jawaban">
+                        <strong>Dimensi:</strong> [L][T]⁻¹ = [L][T]⁻¹ + ([L][T]⁻²)([T]) = [L][T]⁻¹ ✅ <br>
+                        <span style="color:#166534;">→ Rumus homogen (benar secara dimensional).</span>
+                    </div>
+                </div>
+                <div class="contoh-item">
+                    <div class="soal">2. Periksa rumus: s = v₀t + ½a²t</div>
+                    <div class="jawaban">
+                        <strong>Dimensi:</strong> [L] = ([L][T]⁻¹)([T]) + ([L][T]⁻²)²([T]) = [L] + [L]²[T]⁻³ ❌ <br>
+                        <span style="color:#991b1b;">→ Tidak homogen (pasti salah).</span>
+                    </div>
+                </div>
+                <div class="contoh-item">
+                    <div class="soal">3. Tentukan dimensi Daya (P)</div>
+                    <div class="jawaban">
+                        <strong>Rumus:</strong> P = Usaha / waktu = (gaya × perpindahan) / waktu <br>
+                        <span class="dim">Dimensi: [M][L]²[T]⁻³</span>
+                    </div>
+                </div>
+                <div style="margin-top:0.8rem; background:#f1f5f9; border-radius:10px; padding:0.6rem 1rem; font-size:0.9rem;">
+                    <i class="fas fa-arrow-right" style="color:#2563eb;"></i> <strong>Langkah:</strong> 1. Tulis rumus → 2. Ganti setiap besaran dengan dimensinya → 3. Sederhanakan.
+                </div>
+            </div>
+        </div>
+
+        <!-- SOAL LATIHAN ANALISIS DIMENSI -->
+        <div class="latihan-box">
+            <h3><i class="fas fa-tasks" style="color:#2563eb; margin-right:0.5rem;"></i> Soal Latihan Analisis Dimensi</h3>
+            <p style="font-size:0.9rem; color:#475569; margin-bottom:1rem;">Klik tombol "Cek" untuk melihat jawaban dan pembahasan.</p>
+
+            <div class="latihan-item">
+                <span class="soal-lat">1. Tentukan dimensi dari <strong>Momentum</strong> (p = m × v)</span>
+                <button class="btn-pro primary small" onclick="toggleLatihan('lat1')">Cek Jawaban</button>
+            </div>
+            <div id="lat1" class="latihan-feedback">
+                <strong>Pembahasan:</strong> p = massa × kecepatan → [M] × [L][T]⁻¹ = <span class="dim" style="font-weight:700; color:#1e40af;">[M][L][T]⁻¹</span>
+            </div>
+
+            <div class="latihan-item">
+                <span class="soal-lat">2. Periksa homogenitas: F = m × a</span>
+                <button class="btn-pro primary small" onclick="toggleLatihan('lat2')">Cek Jawaban</button>
+            </div>
+            <div id="lat2" class="latihan-feedback">
+                <strong>Pembahasan:</strong> Dimensi F = [M][L][T]⁻², dimensi m×a = [M] × [L][T]⁻² = [M][L][T]⁻² ✅ <br>
+                <span style="color:#166534;">→ Rumus homogen (benar secara dimensional).</span>
+            </div>
+
+            <div class="latihan-item">
+                <span class="soal-lat">3. Tentukan dimensi dari <strong>Impuls</strong> (I = F × t)</span>
+                <button class="btn-pro primary small" onclick="toggleLatihan('lat3')">Cek Jawaban</button>
+            </div>
+            <div id="lat3" class="latihan-feedback">
+                <strong>Pembahasan:</strong> I = gaya × waktu → [M][L][T]⁻² × [T] = <span class="dim" style="font-weight:700; color:#1e40af;">[M][L][T]⁻¹</span> <br>
+                <span style="color:#475569;">(Impuls memiliki dimensi yang sama dengan momentum)</span>
+            </div>
+
+            <div class="latihan-item">
+                <span class="soal-lat">4. Periksa homogenitas: E = mc²</span>
+                <button class="btn-pro primary small" onclick="toggleLatihan('lat4')">Cek Jawaban</button>
+            </div>
+            <div id="lat4" class="latihan-feedback">
+                <strong>Pembahasan:</strong> E (energi) = [M][L]²[T]⁻², mc² = [M] × ([L][T]⁻¹)² = [M][L]²[T]⁻² ✅ <br>
+                <span style="color:#166534;">→ Rumus homogen (benar secara dimensional).</span>
+            </div>
+        </div>
+    </div>
+
     <!-- GAME + SIMULASI -->
     <div class="game-section">
         <div class="game-header">
@@ -643,6 +913,8 @@
                         <option value="usaha">Usaha</option>
                         <option value="tekanan">Tekanan</option>
                         <option value="daya">Daya</option>
+                        <option value="momentum">Momentum</option>
+                        <option value="impuls">Impuls</option>
                     </select>
                 </div>
 
@@ -806,7 +1078,6 @@
             loadQuestion(currentQuestion);
         } else {
             alert('🎉 Selamat! Anda telah menyelesaikan semua soal. Skor akhir: ' + score + '/' + questions.length);
-            // restart otomatis
             resetGame();
         }
     }
@@ -844,6 +1115,16 @@
             formula: 'usaha / waktu',
             dimensi: '[M][L]²[T]⁻³',
             desc: 'Besaran turunan dari massa, panjang kuadrat, dan waktu pangkat tiga'
+        },
+        momentum: {
+            formula: 'massa × kecepatan',
+            dimensi: '[M][L][T]⁻¹',
+            desc: 'Besaran turunan dari massa, panjang, dan waktu invers'
+        },
+        impuls: {
+            formula: 'gaya × waktu',
+            dimensi: '[M][L][T]⁻¹',
+            desc: 'Besaran turunan dari massa, panjang, dan waktu invers (sama dengan momentum)'
         }
     };
 
@@ -859,6 +1140,16 @@
     function resetSimulation() {
         document.getElementById('simSelect').value = 'kecepatan';
         updateSimulation();
+    }
+
+    // --- LATIHAN TOGGLE ---
+    function toggleLatihan(id) {
+        const el = document.getElementById(id);
+        if (el.classList.contains('show')) {
+            el.classList.remove('show');
+        } else {
+            el.classList.add('show');
+        }
     }
 
     // Load pertama
