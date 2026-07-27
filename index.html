@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Besaran Pokok, Turunan & Dimensi - Fisika Interaktif</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -15,22 +15,23 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f0f4f8;
-            color: #0b1a2e;
-            line-height: 1.6;
+            background: #f5f0e8;
+            color: #1a1a2e;
+            line-height: 1.7;
+            font-size: 18px;
         }
 
         .app-wrapper {
             max-width: 1440px;
             margin: 0 auto;
-            padding: 1.5rem 2rem 3rem;
+            padding: 2rem 2.5rem 3rem;
         }
 
-        /* HEADER PROFESIONAL */
+        /* HEADER - Kontras tinggi */
         .header-pro {
-            background: linear-gradient(135deg, #0b1a2e 0%, #1a365d 100%);
-            border-radius: 20px;
-            padding: 2rem 2.5rem;
+            background: #1a1a2e;
+            border-radius: 24px;
+            padding: 2.5rem 3rem;
             margin-bottom: 2.5rem;
             color: white;
             display: flex;
@@ -38,191 +39,194 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1.5rem;
-            box-shadow: 0 12px 40px rgba(11, 26, 46, 0.25);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-pro::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(99, 179, 237, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 3px solid #e8d5b5;
         }
 
         .header-pro .brand h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
+            font-size: 3.2rem;
+            font-weight: 900;
             letter-spacing: -0.02em;
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            color: #ffd700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .header-pro .brand h1 i {
-            color: #63b3ed;
+            color: #ffd700;
+            font-size: 3rem;
         }
 
         .header-pro .brand .sub {
-            font-size: 1rem;
-            opacity: 0.75;
+            font-size: 1.4rem;
+            opacity: 0.9;
             font-weight: 400;
             margin-top: 0.15rem;
+            color: #e8d5b5;
         }
 
         .header-stats {
             display: flex;
-            gap: 2rem;
-            background: rgba(255,255,255,0.06);
-            padding: 0.8rem 1.8rem;
+            gap: 2.5rem;
+            background: rgba(255,255,255,0.12);
+            padding: 1rem 2.2rem;
             border-radius: 60px;
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 2px solid rgba(255,215,0,0.3);
             flex-wrap: wrap;
         }
 
         .header-stats .stat-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            color: #ffffff;
         }
 
         .header-stats .stat-item i {
-            color: #63b3ed;
-            font-size: 1.1rem;
+            color: #ffd700;
+            font-size: 1.4rem;
         }
 
         .header-stats .stat-item strong {
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #ffd700;
         }
 
         /* GRID UTAMA */
         .main-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.8rem;
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
         .card-pro {
-            background: white;
-            border-radius: 18px;
-            padding: 1.5rem 1.8rem 2rem;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(203, 213, 225, 0.25);
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 3px solid #d4c5a9;
             transition: all 0.25s ease;
         }
 
         .card-pro:hover {
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
-            border-color: #cbd5e1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border-color: #c4a882;
         }
 
         .card-pro .card-title {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #0b1a2e;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #eef2f6;
+            gap: 1rem;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #e8d5b5;
         }
 
         .card-pro .card-title i {
-            color: #2563eb;
-            font-size: 1.6rem;
-            width: 2rem;
+            color: #b8860b;
+            font-size: 2.2rem;
+            width: 2.5rem;
         }
 
         .card-pro .card-title .badge-pro {
-            background: #dbeafe;
-            color: #1e40af;
-            font-size: 0.7rem;
+            background: #1a1a2e;
+            color: #ffd700;
+            font-size: 0.9rem;
             font-weight: 700;
-            padding: 0.15rem 0.8rem;
+            padding: 0.2rem 1.2rem;
             border-radius: 40px;
             margin-left: auto;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
+            border: 2px solid #ffd700;
         }
 
         /* TABEL */
         .table-responsive {
             overflow-x: auto;
-            border-radius: 12px;
-            border: 1px solid #eef2f6;
+            border-radius: 14px;
+            border: 2px solid #e8d5b5;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
+            font-size: 1.05rem;
         }
 
         table thead {
-            background: #f8fafc;
+            background: #1a1a2e;
         }
 
         table th {
             text-align: left;
-            padding: 0.7rem 1rem;
-            font-weight: 600;
-            color: #1e293b;
-            border-bottom: 2px solid #e2e8f0;
-            font-size: 0.8rem;
+            padding: 0.9rem 1.2rem;
+            font-weight: 700;
+            color: #ffd700;
+            border-bottom: 3px solid #ffd700;
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
 
         table td {
-            padding: 0.65rem 1rem;
-            border-bottom: 1px solid #f1f5f9;
+            padding: 0.85rem 1.2rem;
+            border-bottom: 2px solid #f0e8dc;
+            font-size: 1.05rem;
         }
 
         table tbody tr:last-child td {
             border-bottom: none;
         }
 
+        table tbody tr:hover {
+            background: #faf6ef;
+        }
+
         .dim-chip {
-            background: #eef2ff;
-            color: #4338ca;
+            background: #1a1a2e;
+            color: #ffd700;
             font-family: 'Courier New', monospace;
-            font-weight: 600;
-            padding: 0.1rem 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 1rem;
             border-radius: 40px;
-            font-size: 0.8rem;
+            font-size: 1rem;
             display: inline-block;
+            border: 2px solid #ffd700;
         }
 
         .highlight-box {
-            background: #f8fafc;
-            border-left: 4px solid #2563eb;
-            padding: 0.9rem 1.2rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-            font-size: 0.92rem;
+            background: #faf6ef;
+            border-left: 6px solid #b8860b;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.2rem;
+            font-size: 1.05rem;
+            border: 2px solid #e8d5b5;
         }
 
         .highlight-box i {
-            color: #2563eb;
-            margin-right: 0.5rem;
+            color: #b8860b;
+            margin-right: 0.75rem;
+            font-size: 1.3rem;
         }
 
-        /* GAME SECTION - FULL WIDTH */
+        /* GAME SECTION */
         .game-section {
-            background: white;
-            border-radius: 18px;
-            padding: 1.8rem 2rem 2.2rem;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(203, 213, 225, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 3px solid #d4c5a9;
         }
 
         .game-section .game-header {
@@ -231,37 +235,46 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .game-section .game-header h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
+            color: #1a1a2e;
         }
 
         .game-section .game-header h2 i {
-            color: #2563eb;
+            color: #b8860b;
+            font-size: 2rem;
         }
 
         .game-stats {
             display: flex;
-            gap: 1.5rem;
-            background: #f1f5f9;
-            padding: 0.4rem 1.2rem;
-            border-radius: 40px;
+            gap: 2rem;
+            background: #1a1a2e;
+            padding: 0.6rem 1.8rem;
+            border-radius: 60px;
+            border: 2px solid #ffd700;
         }
 
         .game-stats span {
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #ffffff;
         }
 
         .game-stats span i {
-            margin-right: 0.3rem;
-            color: #2563eb;
+            margin-right: 0.5rem;
+            color: #ffd700;
+        }
+
+        .game-stats span strong {
+            color: #ffd700;
+            font-size: 1.3rem;
         }
 
         .game-grid {
@@ -271,65 +284,71 @@
         }
 
         .game-question {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.5rem;
+            background: #faf6ef;
+            border-radius: 16px;
+            padding: 1.8rem;
+            border: 2px solid #e8d5b5;
         }
 
         .game-question .q-text {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a1a2e;
         }
 
         .game-question .q-text .highlight {
-            color: #2563eb;
+            color: #b8860b;
+            font-weight: 800;
         }
 
         .option-btn {
             display: block;
             width: 100%;
             text-align: left;
-            padding: 0.8rem 1.2rem;
-            margin-bottom: 0.6rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.7rem;
+            border: 3px solid #d4c5a9;
+            border-radius: 14px;
             background: white;
-            font-weight: 500;
-            font-size: 0.95rem;
+            font-weight: 600;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.15s ease;
             font-family: 'Inter', sans-serif;
         }
 
         .option-btn:hover:not(.disabled) {
-            border-color: #94a3b8;
-            background: #fafcff;
+            border-color: #b8860b;
+            background: #faf6ef;
+            transform: scale(1.01);
         }
 
         .option-btn.correct {
-            border-color: #22c55e;
-            background: #f0fdf4;
-            color: #166534;
+            border-color: #2d7d2d;
+            background: #e8f5e8;
+            color: #1a5a1a;
         }
 
         .option-btn.wrong {
-            border-color: #ef4444;
-            background: #fef2f2;
-            color: #991b1b;
+            border-color: #cc3333;
+            background: #fde8e8;
+            color: #991111;
         }
 
         .option-btn.disabled {
             cursor: default;
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
         .game-feedback {
-            padding: 0.9rem 1.2rem;
-            border-radius: 12px;
-            margin-top: 0.8rem;
-            font-weight: 500;
+            padding: 1rem 1.5rem;
+            border-radius: 14px;
+            margin-top: 1rem;
+            font-weight: 600;
+            font-size: 1.05rem;
             display: none;
+            border: 2px solid;
         }
 
         .game-feedback.show {
@@ -337,83 +356,94 @@
         }
 
         .game-feedback.success {
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            color: #166534;
+            background: #e8f5e8;
+            border-color: #2d7d2d;
+            color: #1a5a1a;
         }
 
         .game-feedback.error {
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            color: #991b1b;
+            background: #fde8e8;
+            border-color: #cc3333;
+            color: #991111;
         }
 
         /* SIMULASI DIMENSI */
         .simulation-box {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.5rem;
+            background: #faf6ef;
+            border-radius: 16px;
+            padding: 1.8rem;
+            border: 2px solid #e8d5b5;
         }
 
         .simulation-box h3 {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            font-weight: 700;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            color: #1a1a2e;
         }
 
         .sim-row {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 1rem;
             flex-wrap: wrap;
             margin-bottom: 0.8rem;
             background: white;
-            padding: 0.6rem 1rem;
-            border-radius: 10px;
-            border: 1px solid #eef2f6;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            border: 2px solid #e8d5b5;
         }
 
         .sim-row .label {
-            font-weight: 500;
-            min-width: 70px;
-            font-size: 0.9rem;
+            font-weight: 700;
+            min-width: 80px;
+            font-size: 1.05rem;
+            color: #1a1a2e;
         }
 
         .sim-row .value {
             font-family: 'Courier New', monospace;
-            font-weight: 600;
-            color: #1e40af;
-            background: #eef2ff;
-            padding: 0.1rem 0.8rem;
+            font-weight: 700;
+            color: #b8860b;
+            background: #1a1a2e;
+            padding: 0.2rem 1rem;
             border-radius: 30px;
-            font-size: 0.9rem;
+            font-size: 1.05rem;
+            border: 2px solid #ffd700;
+            color: #ffd700;
         }
 
         .sim-row .dim-result {
             font-family: 'Courier New', monospace;
-            font-weight: 700;
-            color: #0b1a2e;
-            background: #e2e8f0;
-            padding: 0.1rem 0.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            background: #1a1a2e;
+            padding: 0.2rem 1.2rem;
             border-radius: 30px;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
+            border: 2px solid #ffd700;
+        }
+
+        .sim-row .dim-result i {
+            color: #ffd700;
+            margin-right: 0.5rem;
         }
 
         .sim-controls {
             display: flex;
-            gap: 0.6rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
-            margin-top: 0.8rem;
+            margin-top: 1rem;
         }
 
         .btn-pro {
-            padding: 0.5rem 1.4rem;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
             border: none;
             cursor: pointer;
             transition: all 0.15s ease;
@@ -421,44 +451,46 @@
         }
 
         .btn-pro.primary {
-            background: #2563eb;
-            color: white;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+            background: #1a1a2e;
+            color: #ffd700;
+            border: 3px solid #ffd700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .btn-pro.primary:hover {
-            background: #1d4ed8;
-            transform: translateY(-1px);
+            background: #2a2a4e;
+            transform: translateY(-2px);
         }
 
         .btn-pro.outline {
             background: transparent;
-            border: 2px solid #e2e8f0;
-            color: #1e293b;
+            border: 3px solid #b8860b;
+            color: #1a1a2e;
         }
 
         .btn-pro.outline:hover {
-            border-color: #94a3b8;
-            background: #f8fafc;
+            background: #faf6ef;
+            border-color: #8b6914;
         }
 
         .btn-pro.success {
-            background: #22c55e;
+            background: #2d7d2d;
             color: white;
+            border: 3px solid #2d7d2d;
         }
 
         .btn-pro.success:hover {
-            background: #16a34a;
+            background: #1a5a1a;
         }
 
-        /* FUNGSI DIMENSI & ANALISIS DIMENSIONAL */
+        /* DIMENSI SECTION */
         .dimensi-section {
-            background: white;
-            border-radius: 18px;
-            padding: 1.8rem 2rem 2.2rem;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(203, 213, 225, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 3px solid #d4c5a9;
         }
 
         .dimensi-section .section-header {
@@ -467,19 +499,20 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .dimensi-section .section-header h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
+            color: #1a1a2e;
         }
 
         .dimensi-section .section-header h2 i {
-            color: #2563eb;
+            color: #b8860b;
         }
 
         .dimensi-grid {
@@ -489,16 +522,17 @@
         }
 
         .fungsi-box {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.5rem;
+            background: #faf6ef;
+            border-radius: 16px;
+            padding: 1.8rem;
+            border: 2px solid #e8d5b5;
         }
 
         .fungsi-box h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: #0b1a2e;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
         }
 
         .fungsi-box ul {
@@ -507,11 +541,12 @@
         }
 
         .fungsi-box ul li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eef2f6;
+            padding: 0.7rem 0;
+            border-bottom: 2px solid #e8d5b5;
             display: flex;
             align-items: flex-start;
-            gap: 0.6rem;
+            gap: 0.8rem;
+            font-size: 1.05rem;
         }
 
         .fungsi-box ul li:last-child {
@@ -519,178 +554,192 @@
         }
 
         .fungsi-box ul li i {
-            color: #2563eb;
+            color: #b8860b;
             margin-top: 0.15rem;
-            font-size: 0.9rem;
-            min-width: 1.2rem;
+            font-size: 1.2rem;
+            min-width: 1.5rem;
         }
 
         .contoh-box {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.5rem;
+            background: #faf6ef;
+            border-radius: 16px;
+            padding: 1.8rem;
+            border: 2px solid #e8d5b5;
         }
 
         .contoh-box h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: #0b1a2e;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
         }
 
         .contoh-item {
             background: white;
-            border-radius: 10px;
-            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
             margin-bottom: 0.8rem;
-            border-left: 4px solid #2563eb;
+            border-left: 6px solid #b8860b;
+            border: 2px solid #e8d5b5;
         }
 
         .contoh-item .soal {
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 0.3rem;
+            font-size: 1.05rem;
         }
 
         .contoh-item .jawaban {
-            color: #475569;
-            font-size: 0.9rem;
+            color: #1a1a2e;
+            font-size: 1rem;
         }
 
         .contoh-item .jawaban .dim {
-            color: #1e40af;
-            font-weight: 600;
+            color: #b8860b;
+            font-weight: 700;
             font-family: 'Courier New', monospace;
         }
 
         .contoh-item .toggle-btn {
-            background: none;
-            border: none;
-            color: #2563eb;
-            font-weight: 600;
+            background: #1a1a2e;
+            border: 2px solid #ffd700;
+            color: #ffd700;
+            font-weight: 700;
             cursor: pointer;
-            font-size: 0.85rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 6px;
-            transition: background 0.15s;
+            font-size: 0.95rem;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            transition: all 0.15s;
+            margin-top: 0.3rem;
         }
 
         .contoh-item .toggle-btn:hover {
-            background: #eef2ff;
+            background: #2a2a4e;
         }
 
         .contoh-item .jawaban-content {
             display: none;
-            margin-top: 0.5rem;
-            padding-top: 0.5rem;
-            border-top: 1px dashed #e2e8f0;
+            margin-top: 0.7rem;
+            padding-top: 0.7rem;
+            border-top: 2px dashed #e8d5b5;
         }
 
         .contoh-item .jawaban-content.show {
             display: block;
         }
 
-        /* TAMBAHAN: FUNGSI LAIN ANALISIS DIMENSI */
+        /* FUNGSI LAIN */
         .fungsi-lain-box {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
+            background: #faf6ef;
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-top: 1.8rem;
+            border: 2px solid #e8d5b5;
         }
 
         .fungsi-lain-box h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: #0b1a2e;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
         }
 
         .fungsi-lain-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 1rem;
         }
 
         .fungsi-lain-item {
             background: white;
-            border-radius: 10px;
-            padding: 1rem;
-            border-left: 4px solid #8b5cf6;
+            border-radius: 12px;
+            padding: 1.2rem;
+            border-left: 6px solid #b8860b;
+            border: 2px solid #e8d5b5;
             transition: all 0.2s;
         }
 
         .fungsi-lain-item:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
         }
 
         .fungsi-lain-item .title-fungsi {
-            font-weight: 700;
-            color: #5b21b6;
-            margin-bottom: 0.3rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
         .fungsi-lain-item .title-fungsi i {
-            font-size: 0.9rem;
+            color: #b8860b;
+            font-size: 1.1rem;
         }
 
         .fungsi-lain-item .desc-fungsi {
-            font-size: 0.9rem;
-            color: #475569;
+            font-size: 1rem;
+            color: #2a2a3e;
         }
 
         .fungsi-lain-item .example-fungsi {
-            font-size: 0.85rem;
-            background: #f3f4f6;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            margin-top: 0.4rem;
+            font-size: 0.95rem;
+            background: #faf6ef;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
             font-family: 'Courier New', monospace;
-            color: #1e293b;
+            color: #1a1a2e;
+            border: 1px solid #e8d5b5;
         }
 
+        /* LATIHAN */
         .latihan-box {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
+            background: #faf6ef;
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-top: 1.8rem;
+            border: 2px solid #e8d5b5;
         }
 
         .latihan-box h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: #0b1a2e;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
         }
 
         .latihan-item {
             background: white;
-            border-radius: 10px;
-            padding: 0.8rem 1rem;
-            margin-bottom: 0.6rem;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 0.7rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            border: 2px solid #e8d5b5;
         }
 
         .latihan-item .soal-lat {
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.05rem;
         }
 
         .latihan-item .btn-pro.small {
-            padding: 0.3rem 1rem;
-            font-size: 0.8rem;
+            padding: 0.4rem 1.5rem;
+            font-size: 0.95rem;
         }
 
         .latihan-feedback {
             margin-top: 0.5rem;
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            font-size: 1rem;
             display: none;
+            border: 2px solid;
         }
 
         .latihan-feedback.show {
@@ -698,61 +747,75 @@
         }
 
         .latihan-feedback.success {
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            color: #166534;
+            background: #e8f5e8;
+            border-color: #2d7d2d;
+            color: #1a5a1a;
         }
 
         .latihan-feedback.error {
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            color: #991b1b;
+            background: #fde8e8;
+            border-color: #cc3333;
+            color: #991111;
         }
 
         /* REFERENSI */
         .ref-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1.2rem;
             margin-top: 1rem;
         }
 
         .ref-item {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 1rem 1.2rem;
-            border-left: 4px solid #2563eb;
+            background: #faf6ef;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            border-left: 6px solid #b8860b;
+            border: 2px solid #e8d5b5;
         }
 
         .ref-item .ref-label {
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: #475569;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1a1a2e;
         }
 
         .ref-item .ref-value {
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin-top: 0.15rem;
+            color: #b8860b;
         }
 
         /* FOOTER */
         .footer-pro {
             margin-top: 2.5rem;
-            padding-top: 1.8rem;
-            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+            border-top: 3px solid #e8d5b5;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            font-size: 0.85rem;
-            color: #64748b;
+            font-size: 1rem;
+            color: #1a1a2e;
         }
 
         .footer-pro .sources i {
-            margin-right: 0.3rem;
-            color: #64748b;
+            margin-right: 0.5rem;
+            color: #b8860b;
+        }
+
+        /* SELECT */
+        select {
+            font-size: 1.05rem;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            border: 2px solid #e8d5b5;
+            background: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #1a1a2e;
         }
 
         /* RESPONSIVE */
@@ -767,7 +830,20 @@
                 grid-template-columns: 1fr;
             }
             .fungsi-lain-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .fungsi-lain-grid {
                 grid-template-columns: 1fr;
+            }
+            .header-pro .brand h1 {
+                font-size: 2.4rem;
+            }
+            .header-stats {
+                padding: 0.6rem 1.2rem;
+                gap: 1rem;
             }
         }
 
@@ -781,18 +857,37 @@
                 align-items: flex-start;
             }
             .header-pro .brand h1 {
-                font-size: 1.6rem;
+                font-size: 2rem;
             }
             .header-stats {
                 padding: 0.5rem 1rem;
-                gap: 1rem;
+                gap: 0.8rem;
+                font-size: 0.9rem;
             }
             .game-stats {
                 flex-wrap: wrap;
                 gap: 0.8rem;
+                padding: 0.5rem 1.2rem;
             }
             .dimensi-section {
                 padding: 1.2rem;
+            }
+            .game-section {
+                padding: 1.2rem;
+            }
+            .card-pro {
+                padding: 1.2rem;
+            }
+            .sim-row {
+                padding: 0.6rem 0.8rem;
+            }
+            .sim-row .label {
+                min-width: 60px;
+                font-size: 0.95rem;
+            }
+            .option-btn {
+                font-size: 1rem;
+                padding: 0.8rem 1.2rem;
             }
         }
     </style>
@@ -838,8 +933,8 @@
             <div class="highlight-box">
                 <i class="fas fa-lightbulb"></i> <strong>Mnemonik:</strong> "Paman Makan Waktu, Kuat Suhu, Jumlah Intensitas"
             </div>
-            <div style="margin-top: 0.8rem; font-size: 0.9rem; color: #475569; background: #f1f5f9; padding: 0.6rem 1rem; border-radius: 10px;">
-                <i class="fas fa-info-circle" style="color: #2563eb;"></i> Sudut datar (radian) & sudut ruang (steradian) adalah besaran tambahan, <strong>tidak berdimensi</strong>.
+            <div style="margin-top: 1rem; font-size: 1.05rem; color: #1a1a2e; background: #faf6ef; padding: 0.8rem 1.2rem; border-radius: 12px; border: 2px solid #e8d5b5;">
+                <i class="fas fa-info-circle" style="color: #b8860b;"></i> Sudut datar (radian) & sudut ruang (steradian) adalah besaran tambahan, <strong>tidak berdimensi</strong>.
             </div>
         </div>
 
@@ -863,7 +958,7 @@
                 </table>
             </div>
             <div class="highlight-box">
-                <i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Aturan:</strong> Besaran dengan dimensi sama dapat dijumlahkan atau dikurangkan.
+                <i class="fas fa-check-circle" style="color: #2d7d2d;"></i> <strong>Aturan:</strong> Besaran dengan dimensi sama dapat dijumlahkan atau dikurangkan.
             </div>
         </div>
     </div>
@@ -872,27 +967,27 @@
     <div class="dimensi-section">
         <div class="section-header">
             <h2><i class="fas fa-ruler-combined"></i> Fungsi Dimensi & Analisis Dimensional</h2>
-            <span class="badge-pro" style="background:#dbeafe; color:#1e40af; padding:0.3rem 1.2rem; border-radius:40px; font-weight:700; font-size:0.8rem;">Homogenitas</span>
+            <span class="badge-pro" style="background:#1a1a2e; color:#ffd700; padding:0.4rem 1.5rem; border-radius:40px; font-weight:700; font-size:1rem; border:2px solid #ffd700;">Homogenitas</span>
         </div>
 
         <div class="dimensi-grid">
             <!-- Fungsi Dimensi -->
             <div class="fungsi-box">
-                <h3><i class="fas fa-bullseye" style="color:#2563eb; margin-right:0.5rem;"></i> Fungsi Analisis Dimensi</h3>
+                <h3><i class="fas fa-bullseye" style="color:#b8860b; margin-right:0.5rem;"></i> Fungsi Analisis Dimensi</h3>
                 <ul>
                     <li><i class="fas fa-check-circle"></i> <strong>Memeriksa kebenaran rumus fisika</strong> — rumus dikatakan benar jika dimensi ruas kiri sama dengan ruas kanan (homogenitas).</li>
                     <li><i class="fas fa-check-circle"></i> <strong>Menurunkan hubungan antar besaran</strong> — jika hubungan matematis belum diketahui, dimensi dapat membantu menemukan bentuk hubungan.</li>
                     <li><i class="fas fa-check-circle"></i> <strong>Menentukan satuan besaran baru</strong> — dari dimensi dapat diturunkan satuan dalam SI.</li>
                     <li><i class="fas fa-check-circle"></i> <strong>Membandingkan besaran fisika</strong> — untuk melihat apakah dua besaran dapat dijumlahkan atau dikurangkan (harus memiliki dimensi yang sama).</li>
                 </ul>
-                <div style="margin-top:0.8rem; background:#eef2ff; border-radius:10px; padding:0.6rem 1rem; font-size:0.9rem;">
-                    <i class="fas fa-lightbulb" style="color:#4338ca;"></i> <strong>Catatan:</strong> Analisis dimensi dapat membuktikan rumus <strong>salah</strong> (pasti salah jika dimensi tidak sama), tetapi <strong>tidak dapat membuktikan benar</strong> secara mutlak karena konstanta tak berdimensi tidak terdeteksi.
+                <div style="margin-top:1rem; background:#e8d5b5; border-radius:12px; padding:0.8rem 1.2rem; font-size:1rem; border:2px solid #b8860b;">
+                    <i class="fas fa-lightbulb" style="color:#8b6914;"></i> <strong>Catatan:</strong> Analisis dimensi dapat membuktikan rumus <strong>salah</strong> (pasti salah jika dimensi tidak sama), tetapi <strong>tidak dapat membuktikan benar</strong> secara mutlak karena konstanta tak berdimensi tidak terdeteksi.
                 </div>
             </div>
 
             <!-- Contoh Analisis Dimensi -->
             <div class="contoh-box">
-                <h3><i class="fas fa-pencil-alt" style="color:#2563eb; margin-right:0.5rem;"></i> Contoh Analisis Dimensi</h3>
+                <h3><i class="fas fa-pencil-alt" style="color:#b8860b; margin-right:0.5rem;"></i> Contoh Analisis Dimensi</h3>
                 
                 <div class="contoh-item">
                     <div class="soal">1. Periksa rumus: v = v₀ + at</div>
@@ -900,7 +995,7 @@
                     <div id="contoh1" class="jawaban-content">
                         <div class="jawaban">
                             <strong>Dimensi:</strong> [L][T]⁻¹ = [L][T]⁻¹ + ([L][T]⁻²)([T]) = [L][T]⁻¹ ✅<br>
-                            <span style="color:#166534;">→ Rumus homogen (benar secara dimensional).</span>
+                            <span style="color:#2d7d2d; font-weight:700;">→ Rumus homogen (benar secara dimensional).</span>
                         </div>
                     </div>
                 </div>
@@ -911,7 +1006,7 @@
                     <div id="contoh2" class="jawaban-content">
                         <div class="jawaban">
                             <strong>Dimensi:</strong> [L] = ([L][T]⁻¹)([T]) + ([L][T]⁻²)²([T]) = [L] + [L]²[T]⁻³ ❌<br>
-                            <span style="color:#991b1b;">→ Tidak homogen (pasti salah).</span>
+                            <span style="color:#cc3333; font-weight:700;">→ Tidak homogen (pasti salah).</span>
                         </div>
                     </div>
                 </div>
@@ -927,50 +1022,50 @@
                     </div>
                 </div>
 
-                <div style="margin-top:0.8rem; background:#f1f5f9; border-radius:10px; padding:0.6rem 1rem; font-size:0.9rem;">
-                    <i class="fas fa-arrow-right" style="color:#2563eb;"></i> <strong>Langkah:</strong> 1. Tulis rumus → 2. Ganti setiap besaran dengan dimensinya → 3. Sederhanakan.
+                <div style="margin-top:1rem; background:#faf6ef; border-radius:12px; padding:0.8rem 1.2rem; font-size:1rem; border:2px solid #e8d5b5;">
+                    <i class="fas fa-arrow-right" style="color:#b8860b;"></i> <strong>Langkah:</strong> 1. Tulis rumus → 2. Ganti setiap besaran dengan dimensinya → 3. Sederhanakan.
                 </div>
             </div>
         </div>
 
         <!-- TAMBAHAN: FUNGSI LAIN ANALISIS DIMENSI -->
         <div class="fungsi-lain-box">
-            <h3><i class="fas fa-expand-arrows-alt" style="color:#8b5cf6; margin-right:0.5rem;"></i> Fungsi Lain Analisis Dimensi</h3>
-            <p style="font-size:0.9rem; color:#475569; margin-bottom:1rem;">Selain fungsi utama, analisis dimensi juga dapat digunakan untuk hal-hal berikut:</p>
+            <h3><i class="fas fa-expand-arrows-alt" style="color:#b8860b; margin-right:0.5rem;"></i> Fungsi Lain Analisis Dimensi</h3>
+            <p style="font-size:1.05rem; color:#1a1a2e; margin-bottom:1rem;">Selain fungsi utama, analisis dimensi juga dapat digunakan untuk hal-hal berikut:</p>
             
             <div class="fungsi-lain-grid">
                 <div class="fungsi-lain-item">
-                    <div class="title-fungsi"><i class="fas fa-calculator" style="color:#8b5cf6;"></i> Menentukan Konstanta tak berdimensi</div>
+                    <div class="title-fungsi"><i class="fas fa-calculator"></i> Menentukan Konstanta tak berdimensi</div>
                     <div class="desc-fungsi">Membantu mengidentifikasi apakah suatu konstanta memiliki dimensi atau tidak. Konstanta tak berdimensi tidak mempengaruhi homogenitas.</div>
                     <div class="example-fungsi">Contoh: ½ pada rumus s = v₀t + ½at² adalah konstanta tak berdimensi</div>
                 </div>
                 
                 <div class="fungsi-lain-item">
-                    <div class="title-fungsi"><i class="fas fa-arrows-left-right" style="color:#8b5cf6;"></i> Mengubah Satuan Antar Sistem</div>
+                    <div class="title-fungsi"><i class="fas fa-arrows-left-right"></i> Mengubah Satuan Antar Sistem</div>
                     <div class="desc-fungsi">Dimensi memungkinkan konversi satuan antar sistem (MKS, CGS, atau sistem lain) dengan menggunakan faktor konversi.</div>
                     <div class="example-fungsi">Contoh: 1 N = 10⁵ dyne (karena gaya memiliki dimensi [M][L][T]⁻²)</div>
                 </div>
                 
                 <div class="fungsi-lain-item">
-                    <div class="title-fungsi"><i class="fas fa-search-plus" style="color:#8b5cf6;"></i> Memeriksa Konsistensi Persamaan</div>
+                    <div class="title-fungsi"><i class="fas fa-search-plus"></i> Memeriksa Konsistensi Persamaan</div>
                     <div class="desc-fungsi">Memastikan bahwa semua suku dalam persamaan memiliki dimensi yang sama, termasuk suku-suku dalam operasi matematika kompleks.</div>
                     <div class="example-fungsi">Contoh: Dalam persamaan gelombang y = A sin(kx - ωt), semua suku dalam fungsi sinus harus tak berdimensi.</div>
                 </div>
                 
                 <div class="fungsi-lain-item">
-                    <div class="title-fungsi"><i class="fas fa-arrow-right-arrow-left" style="color:#8b5cf6;"></i> Menentukan Hubungan Skala</div>
+                    <div class="title-fungsi"><i class="fas fa-arrow-right-arrow-left"></i> Menentukan Hubungan Skala</div>
                     <div class="desc-fungsi">Membantu menentukan bagaimana suatu besaran berubah jika besaran lain diubah skalanya (analisis skala).</div>
                     <div class="example-fungsi">Contoh: Jika panjang diperbesar 2×, maka luas akan menjadi 4× karena [L]², volume menjadi 8× karena [L]³</div>
                 </div>
                 
-                <div class="fungsi-lain-item" style="border-left-color: #ec4899;">
-                    <div class="title-fungsi"><i class="fas fa-chart-line" style="color:#ec4899;"></i> Menentukan Pangkat dalam Hubungan</div>
+                <div class="fungsi-lain-item" style="border-left-color: #8b6914;">
+                    <div class="title-fungsi"><i class="fas fa-chart-line"></i> Menentukan Pangkat dalam Hubungan</div>
                     <div class="desc-fungsi">Membantu menentukan eksponen dalam hubungan antar besaran yang belum diketahui bentuknya.</div>
                     <div class="example-fungsi">Contoh: Jika T = k · mᵃ · lᵇ · gᶜ, analisis dimensi dapat menentukan nilai a, b, dan c.</div>
                 </div>
                 
-                <div class="fungsi-lain-item" style="border-left-color: #ec4899;">
-                    <div class="title-fungsi"><i class="fas fa-exclamation-triangle" style="color:#ec4899;"></i> Mengidentifikasi Kesalahan Konsep</div>
+                <div class="fungsi-lain-item" style="border-left-color: #8b6914;">
+                    <div class="title-fungsi"><i class="fas fa-exclamation-triangle"></i> Mengidentifikasi Kesalahan Konsep</div>
                     <div class="desc-fungsi">Membantu menemukan kesalahan konsep dalam rumus fisika yang sering dianggap benar tetapi secara dimensional tidak konsisten.</div>
                     <div class="example-fungsi">Contoh: Rumus v = at² + v₀ akan terdeteksi salah secara dimensional</div>
                 </div>
@@ -979,15 +1074,15 @@
 
         <!-- SOAL LATIHAN ANALISIS DIMENSI -->
         <div class="latihan-box">
-            <h3><i class="fas fa-tasks" style="color:#2563eb; margin-right:0.5rem;"></i> Soal Latihan Analisis Dimensi</h3>
-            <p style="font-size:0.9rem; color:#475569; margin-bottom:1rem;">Kerjakan soal berikut, lalu klik tombol "Lihat Pembahasan" untuk memeriksa jawabanmu.</p>
+            <h3><i class="fas fa-tasks" style="color:#b8860b; margin-right:0.5rem;"></i> Soal Latihan Analisis Dimensi</h3>
+            <p style="font-size:1.05rem; color:#1a1a2e; margin-bottom:1rem;">Kerjakan soal berikut, lalu klik tombol "Lihat Pembahasan" untuk memeriksa jawabanmu.</p>
 
             <div class="latihan-item">
                 <span class="soal-lat">1. Tentukan dimensi dari <strong>Momentum</strong> (p = m × v)</span>
                 <button class="btn-pro primary small" onclick="toggleLatihan('lat1')">Lihat Pembahasan</button>
             </div>
             <div id="lat1" class="latihan-feedback">
-                <strong>Pembahasan:</strong> p = massa × kecepatan → [M] × [L][T]⁻¹ = <span style="font-weight:700; color:#1e40af; font-family:'Courier New',monospace;">[M][L][T]⁻¹</span>
+                <strong>Pembahasan:</strong> p = massa × kecepatan → [M] × [L][T]⁻¹ = <span style="font-weight:800; color:#b8860b; font-family:'Courier New',monospace; font-size:1.1rem;">[M][L][T]⁻¹</span>
             </div>
 
             <div class="latihan-item">
@@ -996,7 +1091,7 @@
             </div>
             <div id="lat2" class="latihan-feedback">
                 <strong>Pembahasan:</strong> Dimensi F = [M][L][T]⁻², dimensi m×a = [M] × [L][T]⁻² = [M][L][T]⁻² ✅<br>
-                <span style="color:#166534;">→ Rumus homogen (benar secara dimensional).</span>
+                <span style="color:#2d7d2d; font-weight:700;">→ Rumus homogen (benar secara dimensional).</span>
             </div>
 
             <div class="latihan-item">
@@ -1004,8 +1099,8 @@
                 <button class="btn-pro primary small" onclick="toggleLatihan('lat3')">Lihat Pembahasan</button>
             </div>
             <div id="lat3" class="latihan-feedback">
-                <strong>Pembahasan:</strong> I = gaya × waktu → [M][L][T]⁻² × [T] = <span style="font-weight:700; color:#1e40af; font-family:'Courier New',monospace;">[M][L][T]⁻¹</span><br>
-                <span style="color:#475569;">(Impuls memiliki dimensi yang sama dengan momentum)</span>
+                <strong>Pembahasan:</strong> I = gaya × waktu → [M][L][T]⁻² × [T] = <span style="font-weight:800; color:#b8860b; font-family:'Courier New',monospace; font-size:1.1rem;">[M][L][T]⁻¹</span><br>
+                <span style="color:#1a1a2e;">(Impuls memiliki dimensi yang sama dengan momentum)</span>
             </div>
 
             <div class="latihan-item">
@@ -1014,7 +1109,7 @@
             </div>
             <div id="lat4" class="latihan-feedback">
                 <strong>Pembahasan:</strong> E (energi) = [M][L]²[T]⁻², mc² = [M] × ([L][T]⁻¹)² = [M][L]²[T]⁻² ✅<br>
-                <span style="color:#166534;">→ Rumus homogen (benar secara dimensional).</span>
+                <span style="color:#2d7d2d; font-weight:700;">→ Rumus homogen (benar secara dimensional).</span>
             </div>
 
             <div class="latihan-item">
@@ -1022,7 +1117,7 @@
                 <button class="btn-pro primary small" onclick="toggleLatihan('lat5')">Lihat Pembahasan</button>
             </div>
             <div id="lat5" class="latihan-feedback">
-                <strong>Pembahasan:</strong> P = Usaha / waktu → [M][L]²[T]⁻² / [T] = <span style="font-weight:700; color:#1e40af; font-family:'Courier New',monospace;">[M][L]²[T]⁻³</span>
+                <strong>Pembahasan:</strong> P = Usaha / waktu → [M][L]²[T]⁻² / [T] = <span style="font-weight:800; color:#b8860b; font-family:'Courier New',monospace; font-size:1.1rem;">[M][L]²[T]⁻³</span>
             </div>
         </div>
     </div>
@@ -1032,7 +1127,7 @@
         <div class="game-header">
             <h2><i class="fas fa-gamepad"></i> Kuis & Simulasi Dimensi</h2>
             <div class="game-stats">
-                <span><i class="fas fa-star" style="color: #f59e0b;"></i> Skor: <strong id="scoreDisplay">0</strong></span>
+                <span><i class="fas fa-star"></i> Skor: <strong id="scoreDisplay">0</strong></span>
                 <span><i class="fas fa-question-circle"></i> Soal: <strong id="questionCounter">1/5</strong></span>
             </div>
         </div>
@@ -1050,7 +1145,7 @@
                     <button class="option-btn" data-opt="3" onclick="selectOption(3)">D. [L]²[T]⁻²</button>
                 </div>
                 <div id="gameFeedback" class="game-feedback"></div>
-                <div style="margin-top: 1rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                <div style="margin-top: 1.2rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
                     <button class="btn-pro primary" onclick="nextQuestion()"><i class="fas fa-arrow-right"></i> Soal Selanjutnya</button>
                     <button class="btn-pro outline" onclick="resetGame()"><i class="fas fa-rotate"></i> Reset</button>
                 </div>
@@ -1058,12 +1153,12 @@
 
             <!-- Simulasi Dimensi -->
             <div class="simulation-box">
-                <h3><i class="fas fa-microscope" style="color: #2563eb;"></i> Simulasi Analisis Dimensi</h3>
-                <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1rem;">Pilih besaran turunan untuk melihat dimensi dan kesetaraannya.</p>
+                <h3><i class="fas fa-microscope" style="color:#b8860b;"></i> Simulasi Analisis Dimensi</h3>
+                <p style="font-size: 1.05rem; color: #1a1a2e; margin-bottom: 1.2rem;">Pilih besaran turunan untuk melihat dimensi dan kesetaraannya.</p>
 
                 <div class="sim-row">
                     <span class="label">Besaran:</span>
-                    <select id="simSelect" style="flex:1; padding:0.4rem 0.8rem; border-radius:8px; border:1px solid #e2e8f0; font-family:'Inter',sans-serif; font-weight:500;">
+                    <select id="simSelect">
                         <option value="kecepatan">Kecepatan</option>
                         <option value="gaya">Gaya</option>
                         <option value="usaha">Usaha</option>
@@ -1081,12 +1176,12 @@
 
                 <div class="sim-row">
                     <span class="label">Dimensi:</span>
-                    <span id="simDimensi" class="dim-result">[L][T]⁻¹</span>
+                    <span id="simDimensi" class="dim-result"><i class="fas fa-ruler"></i> [L][T]⁻¹</span>
                 </div>
 
-                <div class="sim-row" style="background: #eef2ff; border-color: #c7d2fe;">
-                    <span class="label"><i class="fas fa-info-circle"></i> Keterangan:</span>
-                    <span id="simDesc" style="font-size:0.9rem;">Besaran turunan dari panjang dan waktu</span>
+                <div class="sim-row" style="background: #e8d5b5; border-color: #b8860b;">
+                    <span class="label"><i class="fas fa-info-circle" style="color:#8b6914;"></i> Keterangan:</span>
+                    <span id="simDesc" style="font-size:1.05rem; font-weight:500;">Besaran turunan dari panjang dan waktu</span>
                 </div>
 
                 <div class="sim-controls">
@@ -1130,8 +1225,8 @@
                 <div class="ref-value">1 cd = 1/683 W/sr pada 540 THz</div>
             </div>
         </div>
-        <div style="margin-top:1rem; font-size:0.85rem; color:#64748b; background:#f8fafc; padding:0.6rem 1rem; border-radius:10px;">
-            <i class="fas fa-database" style="color:#2563eb;"></i> Berdasarkan SI (Système International d'Unités) dan referensi BIPM.
+        <div style="margin-top:1.2rem; font-size:1rem; color:#1a1a2e; background:#faf6ef; padding:0.8rem 1.2rem; border-radius:12px; border:2px solid #e8d5b5;">
+            <i class="fas fa-database" style="color:#b8860b;"></i> Berdasarkan SI (Système International d'Unités) dan referensi BIPM.
         </div>
     </div>
 
@@ -1289,7 +1384,7 @@
         const key = select.value;
         const data = simData[key];
         document.getElementById('simFormula').textContent = data.formula;
-        document.getElementById('simDimensi').textContent = data.dimensi;
+        document.getElementById('simDimensi').innerHTML = '<i class="fas fa-ruler"></i> ' + data.dimensi;
         document.getElementById('simDesc').textContent = data.desc;
     }
 
