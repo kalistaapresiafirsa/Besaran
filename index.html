@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ Kuasai Fisika: Besaran & Dimensi</title>
-    <!-- Google Fonts & Font Awesome untuk tampilan modern -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Besaran Pokok, Turunan & Dimensi - Fisika Interaktif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -16,558 +15,857 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f8fafc;
-            color: #0f172a;
-            padding: 2rem 1rem;
+            background: #f0f4f8;
+            color: #0b1a2e;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1300px;
+        .app-wrapper {
+            max-width: 1440px;
             margin: 0 auto;
+            padding: 1.5rem 2rem 3rem;
         }
 
-        /* Header dengan gaya gradien & efek glassmorphism */
-        .header {
-            background: linear-gradient(145deg, #1e293b, #0f172a);
+        /* HEADER PROFESIONAL */
+        .header-pro {
+            background: linear-gradient(135deg, #0b1a2e 0%, #1a365d 100%);
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.5rem;
             color: white;
-            padding: 2.5rem 2rem;
-            border-radius: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            box-shadow: 0 12px 40px rgba(11, 26, 46, 0.25);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .header::after {
-            content: '⚛️';
+        .header-pro::before {
+            content: '';
             position: absolute;
-            right: 2rem;
-            bottom: -1rem;
-            font-size: 10rem;
-            opacity: 0.1;
-            pointer-events: none;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 179, 237, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
-        .header h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
+        .header-pro .brand h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
             letter-spacing: -0.02em;
             display: flex;
             align-items: center;
             gap: 0.75rem;
+        }
+
+        .header-pro .brand h1 i {
+            color: #63b3ed;
+        }
+
+        .header-pro .brand .sub {
+            font-size: 1rem;
+            opacity: 0.75;
+            font-weight: 400;
+            margin-top: 0.15rem;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 2rem;
+            background: rgba(255,255,255,0.06);
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.08);
             flex-wrap: wrap;
         }
 
-        .header h1 span {
-            background: rgba(255, 255, 255, 0.12);
-            padding: 0.1rem 1rem;
-            border-radius: 60px;
+        .header-stats .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .header-stats .stat-item i {
+            color: #63b3ed;
             font-size: 1.1rem;
-            font-weight: 500;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255,255,255,0.08);
         }
 
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.85;
-            max-width: 650px;
-            margin-top: 0.5rem;
-            font-weight: 400;
+        .header-stats .stat-item strong {
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
-        /* Grid & Card */
-        .grid-2col {
+        /* GRID UTAMA */
+        .main-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2rem;
         }
 
-        .card {
+        .card-pro {
             background: white;
-            border-radius: 1.8rem;
-            padding: 1.8rem 1.8rem 2rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.25s ease;
-            border: 1px solid rgba(203, 213, 225, 0.3);
-            backdrop-filter: blur(2px);
-            height: fit-content;
+            border-radius: 18px;
+            padding: 1.5rem 1.8rem 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(203, 213, 225, 0.25);
+            transition: all 0.25s ease;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+        .card-pro:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
             border-color: #cbd5e1;
         }
 
-        .card-header {
+        .card-pro .card-title {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #f1f5f9;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0b1a2e;
+            margin-bottom: 1.25rem;
             padding-bottom: 0.75rem;
+            border-bottom: 2px solid #eef2f6;
         }
 
-        .card-header i {
-            font-size: 1.8rem;
+        .card-pro .card-title i {
             color: #2563eb;
-            width: 2.2rem;
-            text-align: center;
+            font-size: 1.6rem;
+            width: 2rem;
         }
 
-        .card-header h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        .badge {
+        .card-pro .card-title .badge-pro {
             background: #dbeafe;
             color: #1e40af;
-            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.8rem;
             border-radius: 40px;
-            font-size: 0.75rem;
-            font-weight: 600;
             margin-left: auto;
-            white-space: nowrap;
+            letter-spacing: 0.3px;
         }
 
-        /* Tabel modern */
-        .table-wrap {
+        /* TABEL */
+        .table-responsive {
             overflow-x: auto;
-            margin: 1rem 0 0.5rem;
-            border-radius: 1rem;
+            border-radius: 12px;
+            border: 1px solid #eef2f6;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        th {
-            background: #f1f5f9;
+        table thead {
+            background: #f8fafc;
+        }
+
+        table th {
+            text-align: left;
+            padding: 0.7rem 1rem;
             font-weight: 600;
             color: #1e293b;
-            padding: 0.7rem 0.8rem;
-            text-align: left;
+            border-bottom: 2px solid #e2e8f0;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
-        td {
-            padding: 0.7rem 0.8rem;
-            border-bottom: 1px solid #e9edf2;
+        table td {
+            padding: 0.65rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        tr:last-child td {
+        table tbody tr:last-child td {
             border-bottom: none;
         }
 
-        .highlight-cell {
-            background: #f8fafc;
-            font-weight: 500;
-        }
-
-        .dim-badge {
-            font-family: 'Courier New', monospace;
+        .dim-chip {
             background: #eef2ff;
-            padding: 0.15rem 0.6rem;
+            color: #4338ca;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            padding: 0.1rem 0.7rem;
             border-radius: 40px;
             font-size: 0.8rem;
-            font-weight: 600;
-            color: #4338ca;
             display: inline-block;
         }
 
-        /* Kotak interaktif: quiz style */
-        .quiz-box {
-            background: #f1f5f9;
-            border-radius: 1.2rem;
-            padding: 1.5rem;
-            margin: 1.5rem 0 0.5rem;
+        .highlight-box {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 0.9rem 1.2rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            font-size: 0.92rem;
         }
 
-        .quiz-box h3 {
-            font-size: 1.1rem;
+        .highlight-box i {
+            color: #2563eb;
+            margin-right: 0.5rem;
+        }
+
+        /* GAME SECTION - FULL WIDTH */
+        .game-section {
+            background: white;
+            border-radius: 18px;
+            padding: 1.8rem 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(203, 213, 225, 0.25);
+        }
+
+        .game-section .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-section .game-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .game-section .game-header h2 i {
+            color: #2563eb;
+        }
+
+        .game-stats {
+            display: flex;
+            gap: 1.5rem;
+            background: #f1f5f9;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+        }
+
+        .game-stats span {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .game-stats span i {
+            margin-right: 0.3rem;
+            color: #2563eb;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .game-question {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+
+        .game-question .q-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .game-question .q-text .highlight {
+            color: #2563eb;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.6rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: white;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .option-btn:hover:not(.disabled) {
+            border-color: #94a3b8;
+            background: #fafcff;
+        }
+
+        .option-btn.correct {
+            border-color: #22c55e;
+            background: #f0fdf4;
+            color: #166534;
+        }
+
+        .option-btn.wrong {
+            border-color: #ef4444;
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .option-btn.disabled {
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        .game-feedback {
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
+            margin-top: 0.8rem;
+            font-weight: 500;
+            display: none;
+        }
+
+        .game-feedback.show {
+            display: block;
+        }
+
+        .game-feedback.success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+        }
+
+        .game-feedback.error {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+        }
+
+        /* SIMULASI DIMENSI */
+        .simulation-box {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+
+        .simulation-box h3 {
+            font-size: 1rem;
+            font-weight: 600;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .quiz-option {
-            display: block;
-            background: white;
-            padding: 0.8rem 1.2rem;
-            border-radius: 60px;
-            margin-bottom: 0.5rem;
-            border: 1.5px solid #e2e8f0;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            font-weight: 500;
-        }
-
-        .quiz-option:hover {
-            border-color: #94a3b8;
-            background: #fafcff;
-        }
-
-        .quiz-option.correct {
-            border-color: #22c55e;
-            background: #f0fdf4;
-            color: #166534;
-        }
-
-        .quiz-option.wrong {
-            border-color: #ef4444;
-            background: #fef2f2;
-            color: #991b1b;
-        }
-
-        .quiz-option.disabled {
-            pointer-events: none;
-            opacity: 0.7;
-        }
-
-        .feedback-text {
-            margin-top: 0.8rem;
-            padding: 0.8rem 1rem;
-            border-radius: 1rem;
-            font-weight: 500;
-            display: none;
-        }
-
-        .feedback-text.show {
-            display: block;
-        }
-
-        /* Dimensi Explorer - visual */
-        .dimension-explorer {
+        .sim-row {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem 1.2rem;
-            background: #f8fafc;
-            padding: 1.2rem 1.5rem;
-            border-radius: 1.5rem;
-            margin: 1rem 0 0.2rem;
             align-items: center;
-            border: 1px dashed #cbd5e1;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+            background: white;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #eef2f6;
         }
 
-        .dimension-tag {
-            background: white;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
+        .sim-row .label {
+            font-weight: 500;
+            min-width: 70px;
+            font-size: 0.9rem;
+        }
+
+        .sim-row .value {
             font-family: 'Courier New', monospace;
             font-weight: 600;
+            color: #1e40af;
+            background: #eef2ff;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
             font-size: 0.9rem;
         }
 
-        .dimension-tag i {
-            margin-right: 0.4rem;
-            color: #2563eb;
+        .sim-row .dim-result {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: #0b1a2e;
+            background: #e2e8f0;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid #2563eb;
-            color: #2563eb;
+        .sim-controls {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-top: 0.8rem;
+        }
+
+        .btn-pro {
             padding: 0.5rem 1.4rem;
-            border-radius: 60px;
+            border-radius: 40px;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.15s ease;
-            cursor: pointer;
-        }
-
-        .btn-outline:hover {
-            background: #2563eb;
-            color: white;
-        }
-
-        .btn-primary {
-            background: #2563eb;
+            font-size: 0.85rem;
             border: none;
-            color: white;
-            padding: 0.6rem 1.8rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.95rem;
             cursor: pointer;
-            transition: background 0.15s ease;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            transition: all 0.15s ease;
+            font-family: 'Inter', sans-serif;
         }
 
-        .btn-primary:hover {
+        .btn-pro.primary {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-pro.primary:hover {
             background: #1d4ed8;
+            transform: translateY(-1px);
         }
 
-        .fun-fact {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 0.8rem 1.2rem;
-            border-radius: 0.8rem;
-            margin: 1.2rem 0;
-            font-size: 0.95rem;
+        .btn-pro.outline {
+            background: transparent;
+            border: 2px solid #e2e8f0;
+            color: #1e293b;
         }
 
-        .fun-fact i {
-            color: #d97706;
-            margin-right: 0.5rem;
+        .btn-pro.outline:hover {
+            border-color: #94a3b8;
+            background: #f8fafc;
         }
 
-        footer {
-            margin-top: 3.5rem;
-            text-align: center;
-            color: #64748b;
-            font-size: 0.9rem;
+        .btn-pro.success {
+            background: #22c55e;
+            color: white;
+        }
+
+        .btn-pro.success:hover {
+            background: #16a34a;
+        }
+
+        /* REFERENSI */
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .ref-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            border-left: 4px solid #2563eb;
+        }
+
+        .ref-item .ref-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+
+        .ref-item .ref-value {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 0.15rem;
+        }
+
+        /* FOOTER */
+        .footer-pro {
+            margin-top: 2.5rem;
+            padding-top: 1.8rem;
             border-top: 1px solid #e2e8f0;
-            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #64748b;
         }
-        /* Responsive */
+
+        .footer-pro .sources i {
+            margin-right: 0.3rem;
+            color: #64748b;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 640px) {
-            .header h1 { font-size: 2rem; }
-            .header { padding: 1.8rem; }
+            .app-wrapper {
+                padding: 1rem;
+            }
+            .header-pro {
+                padding: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header-pro .brand h1 {
+                font-size: 1.6rem;
+            }
+            .header-stats {
+                padding: 0.5rem 1rem;
+                gap: 1rem;
+            }
+            .game-stats {
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
-<div class="container">
+<div class="app-wrapper">
 
     <!-- HEADER -->
-    <div class="header">
-        <h1>
-            <i class="fas fa-atom" style="color: #60a5fa;"></i> 
-            Besaran & Dimensi
-            <span>#FisikaAsyik</span>
-        </h1>
-        <p><i class="fas fa-bolt" style="color: #fbbf24; margin-right: 6px;"></i> 7 Besaran Pokok • Turunan • Analisis Dimensi — untuk Generasi Z & Alpha</p>
-        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <span style="background: rgba(255,255,255,0.08); padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.85rem;"><i class="fas-regular fa-circle-check"></i> SI</span>
-            <span style="background: rgba(255,255,255,0.08); padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.85rem;"><i class="fas-regular fa-circle-check"></i> MKS</span>
-            <span style="background: rgba(255,255,255,0.08); padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.85rem;"><i class="fas-regular fa-circle-check"></i> Dimensi</span>
+    <div class="header-pro">
+        <div class="brand">
+            <h1><i class="fas fa-atom"></i> Besaran & Dimensi</h1>
+            <div class="sub">Sistem Internasional · Analisis Dimensi · Fisika Dasar</div>
+        </div>
+        <div class="header-stats">
+            <div class="stat-item"><i class="fas fa-cube"></i> <strong>7</strong> Besaran Pokok</div>
+            <div class="stat-item"><i class="fas fa-arrow-right"></i> <strong>>20</strong> Turunan</div>
+            <div class="stat-item"><i class="fas fa-ruler"></i> SI · MKS</div>
         </div>
     </div>
 
-    <!-- BESARAN POKOK + TURUNAN -->
-    <div class="grid-2col">
-        <!-- Kiri: Besaran Pokok -->
-        <div class="card">
-            <div class="card-header">
+    <!-- BESARAN POKOK & TURUNAN -->
+    <div class="main-grid">
+        <div class="card-pro">
+            <div class="card-title">
                 <i class="fas fa-cubes"></i>
-                <h2>Besaran Pokok</h2>
-                <span class="badge">7 dasar</span>
+                Besaran Pokok
+                <span class="badge-pro">7 Dasar</span>
             </div>
-            <p style="margin-bottom: 1rem; color: #334155;">Besaran yang satuannya telah ditetapkan terlebih dahulu dalam SI <i class="fas-regular fa-arrow-right"></i> tidak diturunkan dari besaran lain [citation:1][citation:6].</p>
-            <div class="table-wrap">
+            <div class="table-responsive">
                 <table>
                     <thead><tr><th>Besaran</th><th>Satuan (SI)</th><th>Dimensi</th></tr></thead>
                     <tbody>
-                        <tr><td>Panjang</td><td>meter (m)</td><td><span class="dim-badge">[L]</span></td></tr>
-                        <tr><td>Massa</td><td>kilogram (kg)</td><td><span class="dim-badge">[M]</span></td></tr>
-                        <tr><td>Waktu</td><td>sekon (s)</td><td><span class="dim-badge">[T]</span></td></tr>
-                        <tr><td>Kuat Arus Listrik</td><td>ampere (A)</td><td><span class="dim-badge">[I]</span></td></tr>
-                        <tr><td>Suhu</td><td>kelvin (K)</td><td><span class="dim-badge">[Θ]</span></td></tr>
-                        <tr><td>Jumlah Zat</td><td>mol (mol)</td><td><span class="dim-badge">[N]</span></td></tr>
-                        <tr><td>Intensitas Cahaya</td><td>kandela (cd)</td><td><span class="dim-badge">[J]</span></td></tr>
+                        <tr><td>Panjang</td><td>meter (m)</td><td><span class="dim-chip">[L]</span></td></tr>
+                        <tr><td>Massa</td><td>kilogram (kg)</td><td><span class="dim-chip">[M]</span></td></tr>
+                        <tr><td>Waktu</td><td>sekon (s)</td><td><span class="dim-chip">[T]</span></td></tr>
+                        <tr><td>Kuat Arus Listrik</td><td>ampere (A)</td><td><span class="dim-chip">[I]</span></td></tr>
+                        <tr><td>Suhu</td><td>kelvin (K)</td><td><span class="dim-chip">[Θ]</span></td></tr>
+                        <tr><td>Jumlah Zat</td><td>mol (mol)</td><td><span class="dim-chip">[N]</span></td></tr>
+                        <tr><td>Intensitas Cahaya</td><td>kandela (cd)</td><td><span class="dim-chip">[J]</span></td></tr>
                     </tbody>
                 </table>
             </div>
-            <div style="margin-top: 1rem; background: #eff6ff; border-radius: 1rem; padding: 0.8rem 1rem;">
-                <i class="fas fa-lightbulb" style="color: #2563eb;"></i> <strong>Hafalan SUPER</strong> : <span style="font-weight: 500;">"Paman Makan Waktu, Kuat Suhu, Jumlah Intensitas"</span>
+            <div class="highlight-box">
+                <i class="fas fa-lightbulb"></i> <strong>Mnemonik:</strong> "Paman Makan Waktu, Kuat Suhu, Jumlah Intensitas"
             </div>
-            <div class="fun-fact">
-                <i class="fas fa-microscope"></i> 1 kg standar awalnya adalah silinder platina-iridium di Sevres, Prancis. Kini didefinisikan dengan konstanta Planck [citation:2][citation:12].
+            <div style="margin-top: 0.8rem; font-size: 0.9rem; color: #475569; background: #f1f5f9; padding: 0.6rem 1rem; border-radius: 10px;">
+                <i class="fas fa-info-circle" style="color: #2563eb;"></i> Sudut datar (radian) & sudut ruang (steradian) adalah besaran tambahan, <strong>tidak berdimensi</strong>.
             </div>
         </div>
 
-        <!-- Kanan: Besaran Turunan -->
-        <div class="card">
-            <div class="card-header">
-                <i class="fas fa-arrow-right-arrow-left"></i>
-                <h2>Besaran Turunan</h2>
-                <span class="badge">≥ 20</span>
+        <div class="card-pro">
+            <div class="card-title">
+                <i class="fas fa-arrow-trend-up"></i>
+                Besaran Turunan
+                <span class="badge-pro">Kombinasi</span>
             </div>
-            <p style="margin-bottom: 1rem; color: #334155;">Diturunkan dari besaran pokok. Satuan & dimensinya kombinasi dari besaran pokok [citation:1][citation:14].</p>
-            <div class="table-wrap">
+            <div class="table-responsive">
                 <table>
                     <thead><tr><th>Turunan</th><th>Rumus</th><th>Dimensi</th></tr></thead>
                     <tbody>
-                        <tr><td>Luas</td><td>panjang × lebar</td><td><span class="dim-badge">[L]²</span></td></tr>
-                        <tr><td>Kecepatan</td><td>perpindahan / waktu</td><td><span class="dim-badge">[L][T]⁻¹</span></td></tr>
-                        <tr><td>Percepatan</td><td>kecepatan / waktu</td><td><span class="dim-badge">[L][T]⁻²</span></td></tr>
-                        <tr><td>Gaya (N)</td><td>massa × percepatan</td><td><span class="dim-badge">[M][L][T]⁻²</span></td></tr>
-                        <tr><td>Usaha/Energi (J)</td><td>gaya × perpindahan</td><td><span class="dim-badge">[M][L]²[T]⁻²</span></td></tr>
-                        <tr><td>Tekanan (Pa)</td><td>gaya / luas</td><td><span class="dim-badge">[M][L]⁻¹[T]⁻²</span></td></tr>
+                        <tr><td>Luas</td><td>panjang × lebar</td><td><span class="dim-chip">[L]²</span></td></tr>
+                        <tr><td>Kecepatan</td><td>perpindahan / waktu</td><td><span class="dim-chip">[L][T]⁻¹</span></td></tr>
+                        <tr><td>Percepatan</td><td>kecepatan / waktu</td><td><span class="dim-chip">[L][T]⁻²</span></td></tr>
+                        <tr><td>Gaya (N)</td><td>massa × percepatan</td><td><span class="dim-chip">[M][L][T]⁻²</span></td></tr>
+                        <tr><td>Usaha/Energi (J)</td><td>gaya × perpindahan</td><td><span class="dim-chip">[M][L]²[T]⁻²</span></td></tr>
+                        <tr><td>Tekanan (Pa)</td><td>gaya / luas</td><td><span class="dim-chip">[M][L]⁻¹[T]⁻²</span></td></tr>
                     </tbody>
                 </table>
             </div>
-            <div style="margin-top: 1.2rem; background: #f0fdf4; border-radius: 1rem; padding: 0.8rem 1rem; border-left: 4px solid #22c55e;">
-                <i class="fas-regular fa-circle-check" style="color: #16a34a;"></i> <strong>Dimensi sama</strong> : besaran dapat dijumlahkan/dikurangkan jika dimensinya identik [citation:3][citation:11].
+            <div class="highlight-box">
+                <i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Aturan:</strong> Besaran dengan dimensi sama dapat dijumlahkan atau dikurangkan.
             </div>
         </div>
     </div>
 
-    <!-- DIMENSI + ANALISIS + INTERAKTIF -->
-    <div class="card" style="margin-bottom: 2.5rem;">
-        <div class="card-header">
-            <i class="fas fa-ruler-combined"></i>
-            <h2>Analisis Dimensi & Konversi</h2>
-            <span class="badge">🧠 cerdas</span>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-            <div style="flex: 2; min-width: 260px;">
-                <p><strong><i class="fas-regular fa-bolt" style="color: #2563eb;"></i> Fungsi Dimensi</strong> [citation:3][citation:6]:</p>
-                <ul style="list-style: none; margin: 0.8rem 0;">
-                    <li style="margin-bottom: 0.4rem;"><i class="fas-regular fa-check-circle" style="color: #2563eb;"></i> Memeriksa kebenaran rumus fisika (homogenitas).</li>
-                    <li style="margin-bottom: 0.4rem;"><i class="fas-regular fa-check-circle" style="color: #2563eb;"></i> Menurunkan hubungan antar besaran.</li>
-                    <li style="margin-bottom: 0.4rem;"><i class="fas-regular fa-check-circle" style="color: #2563eb;"></i> Menentukan satuan besaran baru.</li>
-                    <li><i class="fas-regular fa-check-circle" style="color: #2563eb;"></i> Membandingkan besaran (penjumlahan/pengurangan hanya jika dimensi sama).</li>
-                </ul>
-                <div class="dimension-explorer">
-                    <span><i class="fas-regular fa-cube"></i> Contoh dimensi:</span>
-                    <span class="dimension-tag"><i class="fas-regular fa-arrow-right"></i> Kecepatan = [L][T]⁻¹</span>
-                    <span class="dimension-tag"><i class="fas-regular fa-arrow-right"></i> Gaya = [M][L][T]⁻²</span>
-                    <span class="dimension-tag"><i class="fas-regular fa-arrow-right"></i> Daya = [M][L]²[T]⁻³</span>
-                </div>
-                <div style="background: #f1f5f9; border-radius: 1rem; padding: 0.8rem 1.2rem; margin-top: 1rem;">
-                    <i class="fas-regular fa-lightbulb" style="color: #d97706;"></i> <strong>Konversi</strong> : 1 m = 100 cm ; 1 kg = 1000 g. SI menggunakan awalan (kilo, centi, mili, dll).
-                </div>
+    <!-- GAME + SIMULASI -->
+    <div class="game-section">
+        <div class="game-header">
+            <h2><i class="fas fa-gamepad"></i> Kuis & Simulasi Dimensi</h2>
+            <div class="game-stats">
+                <span><i class="fas fa-star" style="color: #f59e0b;"></i> Skor: <strong id="scoreDisplay">0</strong></span>
+                <span><i class="fas fa-question-circle"></i> Soal: <strong id="questionCounter">1/5</strong></span>
             </div>
-            <!-- QUIZ INTERAKTIF: Dimensi -->
-            <div style="flex: 1.5; min-width: 240px; background: #f8fafc; border-radius: 1.5rem; padding: 1.2rem 1.5rem;">
-                <h3 style="display: flex; gap: 0.5rem; align-items: center; font-size: 1.1rem;"><i class="fas-regular fa-gamepad" style="color: #2563eb;"></i> Kuis Dimensi</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 1rem;">Dimensi dari <strong>Usaha (Energi)</strong> adalah ...</p>
-                <div id="quiz-dim" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <div class="quiz-option" data-answer="a" onclick="checkDim('a')">A. [M][L]²[T]⁻²</div>
-                    <div class="quiz-option" data-answer="b" onclick="checkDim('b')">B. [M][L][T]⁻¹</div>
-                    <div class="quiz-option" data-answer="c" onclick="checkDim('c')">C. [M][L]⁻¹[T]⁻²</div>
-                    <div class="quiz-option" data-answer="d" onclick="checkDim('d')">D. [L]²[T]⁻²</div>
-                </div>
-                <div id="feedback-dim" class="feedback-text"></div>
-                <button class="btn-outline" style="margin-top: 0.8rem;" onclick="resetQuizDim()"><i class="fas-regular fa-rotate"></i> Ulangi</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- BONUS: LATIHAN & FUN INTERAKTIF -->
-    <div class="grid-2col">
-        <div class="card">
-            <div class="card-header">
-                <i class="fas-regular fa-pen-to-square"></i>
-                <h2>Latihan Cepat</h2>
-                <span class="badge">🔥 hot</span>
-            </div>
-            <p><strong>Manakah yang termasuk besaran pokok?</strong> (klik pilihanmu)</p>
-            <div id="quiz-pokok" style="margin: 1rem 0;">
-                <div class="quiz-option" onclick="checkPokok('a')">A. Kecepatan</div>
-                <div class="quiz-option" onclick="checkPokok('b')">B. Gaya</div>
-                <div class="quiz-option" onclick="checkPokok('c')">C. Suhu</div>
-                <div class="quiz-option" onclick="checkPokok('d')">D. Usaha</div>
-            </div>
-            <div id="feedback-pokok" class="feedback-text"></div>
-            <button class="btn-outline" onclick="resetPokok()"><i class="fas-regular fa-rotate"></i> Reset</button>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <i class="fas-regular fa-lightbulb"></i>
-                <h2>Fun Fact ⚡</h2>
-                <span class="badge">Gen Z</span>
+        <div class="game-grid">
+            <!-- Kuis Interaktif -->
+            <div class="game-question">
+                <div class="q-text" id="questionText">
+                    Dimensi dari <span class="highlight">Usaha (Energi)</span> adalah ...
+                </div>
+                <div id="optionsContainer">
+                    <button class="option-btn" data-opt="0" onclick="selectOption(0)">A. [M][L]²[T]⁻²</button>
+                    <button class="option-btn" data-opt="1" onclick="selectOption(1)">B. [M][L][T]⁻¹</button>
+                    <button class="option-btn" data-opt="2" onclick="selectOption(2)">C. [M][L]⁻¹[T]⁻²</button>
+                    <button class="option-btn" data-opt="3" onclick="selectOption(3)">D. [L]²[T]⁻²</button>
+                </div>
+                <div id="gameFeedback" class="game-feedback"></div>
+                <div style="margin-top: 1rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                    <button class="btn-pro primary" onclick="nextQuestion()"><i class="fas fa-arrow-right"></i> Soal Selanjutnya</button>
+                    <button class="btn-pro outline" onclick="resetGame()"><i class="fas fa-rotate"></i> Reset</button>
+                </div>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-                <div style="background: #eef2ff; border-radius: 1rem; padding: 1rem;">
-                    <i class="fas-regular fa-flask" style="color: #4f46e5;"></i> <strong>Analisis dimensi</strong> bisa membuktikan rumus <em>salah</em> tetapi <strong>tidak bisa membuktikan benar</strong> secara pasti (karena konstanta tak berdimensi tidak terdeteksi) [citation:8][citation:13].
+
+            <!-- Simulasi Dimensi -->
+            <div class="simulation-box">
+                <h3><i class="fas fa-microscope" style="color: #2563eb;"></i> Simulasi Analisis Dimensi</h3>
+                <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1rem;">Pilih besaran turunan untuk melihat dimensi dan kesetaraannya.</p>
+
+                <div class="sim-row">
+                    <span class="label">Besaran:</span>
+                    <select id="simSelect" style="flex:1; padding:0.4rem 0.8rem; border-radius:8px; border:1px solid #e2e8f0; font-family:'Inter',sans-serif; font-weight:500;">
+                        <option value="kecepatan">Kecepatan</option>
+                        <option value="gaya">Gaya</option>
+                        <option value="usaha">Usaha</option>
+                        <option value="tekanan">Tekanan</option>
+                        <option value="daya">Daya</option>
+                    </select>
                 </div>
-                <div style="background: #fce7f3; border-radius: 1rem; padding: 1rem;">
-                    <i class="fas-regular fa-crown" style="color: #db2777;"></i> <strong>7 Besaran Pokok</strong> : Panjang, Massa, Waktu, Kuat Arus, Suhu, Jumlah Zat, Intensitas Cahaya. Dua tambahan: sudut datar (radian) dan sudut ruang (steradian) — <strong>tidak berdimensi</strong> [citation:11].
+
+                <div class="sim-row">
+                    <span class="label">Rumus:</span>
+                    <span id="simFormula" class="value">perpindahan / waktu</span>
                 </div>
-                <div style="background: #dcfce7; border-radius: 1rem; padding: 1rem;">
-                    <i class="fas-regular fa-arrow-right" style="color: #16a34a;"></i> <strong>Tips</strong> : Untuk mengecek homogenitas, pastikan dimensi ruas kiri = dimensi ruas kanan. Contoh: <em>s = v₀t + ½at²</em> → semua dimensi [L] [citation:3].
+
+                <div class="sim-row">
+                    <span class="label">Dimensi:</span>
+                    <span id="simDimensi" class="dim-result">[L][T]⁻¹</span>
+                </div>
+
+                <div class="sim-row" style="background: #eef2ff; border-color: #c7d2fe;">
+                    <span class="label"><i class="fas fa-info-circle"></i> Keterangan:</span>
+                    <span id="simDesc" style="font-size:0.9rem;">Besaran turunan dari panjang dan waktu</span>
+                </div>
+
+                <div class="sim-controls">
+                    <button class="btn-pro primary" onclick="updateSimulation()"><i class="fas fa-sync"></i> Perbarui</button>
+                    <button class="btn-pro outline" onclick="resetSimulation()"><i class="fas fa-undo"></i> Reset</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <i class="fas-regular fa-graduation-cap"></i> Sumber kredibel: SI, Kemdikbud, jurnal fisika, dan modul ajar. <br>
-        <span style="opacity: 0.7;">Didesain untuk siswa SMA • generasi Z dan Alpha • interaktif & tidak membosankan.</span>
-    </footer>
+    <!-- REFERENSI CEPAT -->
+    <div class="card-pro" style="margin-bottom:2rem;">
+        <div class="card-title">
+            <i class="fas fa-book-open"></i>
+            Referensi Cepat
+            <span class="badge-pro">Sumber Kredibel</span>
+        </div>
+        <div class="ref-grid">
+            <div class="ref-item">
+                <div class="ref-label">Satuan Panjang</div>
+                <div class="ref-value">1 m = 1.650.763,73 λ (kripton-86)</div>
+            </div>
+            <div class="ref-item">
+                <div class="ref-label">Satuan Massa</div>
+                <div class="ref-value">1 kg = massa silinder Pt-Ir</div>
+            </div>
+            <div class="ref-item">
+                <div class="ref-label">Satuan Waktu</div>
+                <div class="ref-value">1 s = 9.192.631.770 getaran Cs-133</div>
+            </div>
+            <div class="ref-item">
+                <div class="ref-label">Satuan Suhu</div>
+                <div class="ref-value">273,15 K = titik beku es</div>
+            </div>
+            <div class="ref-item">
+                <div class="ref-label">Jumlah Zat</div>
+                <div class="ref-value">1 mol = 6,022 × 10²³ partikel</div>
+            </div>
+            <div class="ref-item">
+                <div class="ref-label">Intensitas Cahaya</div>
+                <div class="ref-value">1 cd = 1/683 W/sr pada 540 THz</div>
+            </div>
+        </div>
+        <div style="margin-top:1rem; font-size:0.85rem; color:#64748b; background:#f8fafc; padding:0.6rem 1rem; border-radius:10px;">
+            <i class="fas fa-database" style="color:#2563eb;"></i> Berdasarkan SI (Système International d'Unités) dan referensi BIPM.
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-pro">
+        <span><i class="fas fa-graduation-cap"></i> Media Pembelajaran Fisika · SMA</span>
+        <span class="sources">
+            <i class="fas fa-check-circle"></i> Sumber: BIPM, Kemdikbud, Jurnal Fisika
+        </span>
+    </div>
 </div>
 
 <script>
-    // --- QUIZ DIMENSI (Usaha) ---
-    let dimAnswered = false;
-    function checkDim(answer) {
-        if (dimAnswered) return;
-        const options = document.querySelectorAll('#quiz-dim .quiz-option');
-        const feedback = document.getElementById('feedback-dim');
-        let correct = false;
-        options.forEach(opt => opt.classList.add('disabled'));
-        if (answer === 'a') {
-            document.querySelector('#quiz-dim .quiz-option[data-answer="a"]').classList.add('correct');
-            feedback.innerHTML = '<i class="fas-regular fa-circle-check"></i> ✅ Benar! Usaha = gaya × perpindahan → [M][L]²[T]⁻².';
-            feedback.className = 'feedback-text show';
-            correct = true;
-        } else {
-            // tandai jawaban yang dipilih salah
-            const selected = document.querySelector(`#quiz-dim .quiz-option[data-answer="${answer}"]`);
-            if (selected) selected.classList.add('wrong');
-            // tampilkan jawaban benar
-            document.querySelector('#quiz-dim .quiz-option[data-answer="a"]').classList.add('correct');
-            feedback.innerHTML = '<i class="fas-regular fa-circle-xmark"></i> ❌ Kurang tepat. Dimensi Usaha adalah [M][L]²[T]⁻² (jawaban A).';
-            feedback.className = 'feedback-text show';
+    // --- KUIS INTERAKTIF ---
+    const questions = [
+        {
+            text: 'Dimensi dari <span class="highlight">Usaha (Energi)</span> adalah ...',
+            options: ['[M][L]²[T]⁻²', '[M][L][T]⁻¹', '[M][L]⁻¹[T]⁻²', '[L]²[T]⁻²'],
+            correct: 0,
+            explanation: 'Usaha = gaya × perpindahan → [M][L][T]⁻² × [L] = [M][L]²[T]⁻²'
+        },
+        {
+            text: 'Dimensi dari <span class="highlight">Gaya</span> adalah ...',
+            options: ['[M][L][T]⁻²', '[M][L]²[T]⁻²', '[M][L]⁻¹[T]⁻²', '[L][T]⁻²'],
+            correct: 0,
+            explanation: 'Gaya = massa × percepatan → [M] × [L][T]⁻² = [M][L][T]⁻²'
+        },
+        {
+            text: 'Dimensi dari <span class="highlight">Kecepatan</span> adalah ...',
+            options: ['[L][T]⁻¹', '[L]²[T]⁻²', '[L][T]⁻²', '[M][L][T]⁻¹'],
+            correct: 0,
+            explanation: 'Kecepatan = perpindahan / waktu → [L] / [T] = [L][T]⁻¹'
+        },
+        {
+            text: 'Dimensi dari <span class="highlight">Tekanan</span> adalah ...',
+            options: ['[M][L]⁻¹[T]⁻²', '[M][L][T]⁻²', '[M][L]²[T]⁻²', '[L]⁻¹[T]⁻²'],
+            correct: 0,
+            explanation: 'Tekanan = gaya / luas → [M][L][T]⁻² / [L]² = [M][L]⁻¹[T]⁻²'
+        },
+        {
+            text: 'Manakah yang <span class="highlight">bukan</span> besaran pokok?',
+            options: ['Panjang', 'Massa', 'Kecepatan', 'Suhu'],
+            correct: 2,
+            explanation: 'Kecepatan adalah besaran turunan, bukan besaran pokok.'
         }
-        dimAnswered = true;
-    }
+    ];
 
-    function resetQuizDim() {
-        dimAnswered = false;
-        document.querySelectorAll('#quiz-dim .quiz-option').forEach(opt => {
-            opt.classList.remove('correct', 'wrong', 'disabled');
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion(index) {
+        const q = questions[index];
+        document.getElementById('questionText').innerHTML = q.text;
+        const opts = document.querySelectorAll('#optionsContainer .option-btn');
+        opts.forEach((btn, i) => {
+            btn.innerHTML = String.fromCharCode(65 + i) + '. ' + q.options[i];
+            btn.className = 'option-btn';
+            btn.disabled = false;
         });
-        const feedback = document.getElementById('feedback-dim');
-        feedback.className = 'feedback-text';
-        feedback.innerHTML = '';
+        document.getElementById('gameFeedback').className = 'game-feedback';
+        document.getElementById('gameFeedback').innerHTML = '';
+        document.getElementById('questionCounter').textContent = (index + 1) + '/' + questions.length;
+        answered = false;
     }
 
-    // --- QUIZ POKOK ---
-    let pokokAnswered = false;
-    function checkPokok(answer) {
-        if (pokokAnswered) return;
-        const options = document.querySelectorAll('#quiz-pokok .quiz-option');
-        const feedback = document.getElementById('feedback-pokok');
-        options.forEach(opt => opt.classList.add('disabled'));
-        if (answer === 'c') {
-            document.querySelector('#quiz-pokok .quiz-option:nth-child(3)').classList.add('correct');
-            feedback.innerHTML = '<i class="fas-regular fa-circle-check"></i> ✅ Betul! Suhu adalah besaran pokok (satuan kelvin).';
-            feedback.className = 'feedback-text show';
+    function selectOption(index) {
+        if (answered) return;
+        const q = questions[currentQuestion];
+        const opts = document.querySelectorAll('#optionsContainer .option-btn');
+        const feedback = document.getElementById('gameFeedback');
+
+        opts.forEach((btn, i) => {
+            btn.classList.add('disabled');
+            btn.disabled = true;
+            if (i === q.correct) btn.classList.add('correct');
+            if (i === index && i !== q.correct) btn.classList.add('wrong');
+        });
+
+        if (index === q.correct) {
+            score++;
+            feedback.className = 'game-feedback show success';
+            feedback.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Benar! ' + q.explanation;
         } else {
-            const selected = document.querySelector(`#quiz-pokok .quiz-option:nth-child(${answer === 'a' ? 1 : answer === 'b' ? 2 : 4})`);
-            if (selected) selected.classList.add('wrong');
-            document.querySelector('#quiz-pokok .quiz-option:nth-child(3)').classList.add('correct');
-            feedback.innerHTML = '<i class="fas-regular fa-circle-xmark"></i> ❌ Bukan. Kecepatan, Gaya, Usaha adalah besaran turunan. Jawaban: C. Suhu.';
-            feedback.className = 'feedback-text show';
+            feedback.className = 'game-feedback show error';
+            feedback.innerHTML = '<i class="fas fa-times-circle"></i> ❌ Kurang tepat. ' + q.explanation;
         }
-        pokokAnswered = true;
+
+        document.getElementById('scoreDisplay').textContent = score;
+        answered = true;
     }
 
-    function resetPokok() {
-        pokokAnswered = false;
-        document.querySelectorAll('#quiz-pokok .quiz-option').forEach(opt => {
-            opt.classList.remove('correct', 'wrong', 'disabled');
-        });
-        const feedback = document.getElementById('feedback-pokok');
-        feedback.className = 'feedback-text';
-        feedback.innerHTML = '';
+    function nextQuestion() {
+        if (!answered) {
+            alert('Jawab soal terlebih dahulu!');
+            return;
+        }
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            loadQuestion(currentQuestion);
+        } else {
+            alert('🎉 Selamat! Anda telah menyelesaikan semua soal. Skor akhir: ' + score + '/' + questions.length);
+            // restart otomatis
+            resetGame();
+        }
     }
 
-    // tambahan : interaksi hover telah di CSS
+    function resetGame() {
+        currentQuestion = 0;
+        score = 0;
+        document.getElementById('scoreDisplay').textContent = '0';
+        loadQuestion(0);
+    }
+
+    // --- SIMULASI DIMENSI ---
+    const simData = {
+        kecepatan: {
+            formula: 'perpindahan / waktu',
+            dimensi: '[L][T]⁻¹',
+            desc: 'Besaran turunan dari panjang dan waktu'
+        },
+        gaya: {
+            formula: 'massa × percepatan',
+            dimensi: '[M][L][T]⁻²',
+            desc: 'Besaran turunan dari massa, panjang, dan waktu'
+        },
+        usaha: {
+            formula: 'gaya × perpindahan',
+            dimensi: '[M][L]²[T]⁻²',
+            desc: 'Besaran turunan dari massa, panjang kuadrat, dan waktu kuadrat'
+        },
+        tekanan: {
+            formula: 'gaya / luas',
+            dimensi: '[M][L]⁻¹[T]⁻²',
+            desc: 'Besaran turunan dari massa, panjang invers, dan waktu kuadrat'
+        },
+        daya: {
+            formula: 'usaha / waktu',
+            dimensi: '[M][L]²[T]⁻³',
+            desc: 'Besaran turunan dari massa, panjang kuadrat, dan waktu pangkat tiga'
+        }
+    };
+
+    function updateSimulation() {
+        const select = document.getElementById('simSelect');
+        const key = select.value;
+        const data = simData[key];
+        document.getElementById('simFormula').textContent = data.formula;
+        document.getElementById('simDimensi').textContent = data.dimensi;
+        document.getElementById('simDesc').textContent = data.desc;
+    }
+
+    function resetSimulation() {
+        document.getElementById('simSelect').value = 'kecepatan';
+        updateSimulation();
+    }
+
+    // Load pertama
+    window.onload = function() {
+        loadQuestion(0);
+        updateSimulation();
+    };
 </script>
 
 </body>
