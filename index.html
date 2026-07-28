@@ -97,6 +97,88 @@
             color: #ffd700;
         }
 
+        /* DEFINISI BESARAN - KOTAK PENGANTAR */
+        .definisi-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 3px solid #d4c5a9;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .definisi-box .def-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .definisi-box .def-header i {
+            font-size: 2.5rem;
+            color: #b8860b;
+        }
+
+        .definisi-box .def-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a1a2e;
+        }
+
+        .definisi-box .def-header .badge-def {
+            background: #1a1a2e;
+            color: #ffd700;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            margin-left: auto;
+            border: 2px solid #ffd700;
+        }
+
+        .definisi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .def-item {
+            background: #faf6ef;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid #e8d5b5;
+            text-align: center;
+        }
+
+        .def-item .def-icon {
+            font-size: 2.2rem;
+            color: #b8860b;
+            margin-bottom: 0.5rem;
+        }
+
+        .def-item .def-title {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: #1a1a2e;
+            margin-bottom: 0.3rem;
+        }
+
+        .def-item .def-text {
+            font-size: 1.05rem;
+            color: #2a2a3e;
+        }
+
+        .def-item .def-highlight {
+            background: #1a1a2e;
+            color: #ffd700;
+            padding: 0.1rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-top: 0.3rem;
+        }
+
         /* GRID UTAMA */
         .main-grid {
             display: grid;
@@ -880,6 +962,9 @@
             .fungsi-lain-grid {
                 grid-template-columns: 1fr;
             }
+            .definisi-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -892,6 +977,9 @@
             .header-stats {
                 padding: 0.6rem 1.2rem;
                 gap: 1rem;
+            }
+            .definisi-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -926,6 +1014,9 @@
             .card-pro {
                 padding: 1.2rem;
             }
+            .definisi-box {
+                padding: 1.2rem;
+            }
             .sim-row {
                 padding: 0.6rem 0.8rem;
             }
@@ -953,6 +1044,45 @@
             <div class="stat-item"><i class="fas fa-cube"></i> <strong>7</strong> Besaran Pokok</div>
             <div class="stat-item"><i class="fas fa-arrow-right"></i> <strong>>20</strong> Turunan</div>
             <div class="stat-item"><i class="fas fa-ruler"></i> SI · MKS</div>
+        </div>
+    </div>
+
+    <!-- DEFINISI BESARAN -->
+    <div class="definisi-box">
+        <div class="def-header">
+            <i class="fas fa-balance-scale"></i>
+            <h2>Apa itu Besaran?</h2>
+            <span class="badge-def">Konsep Dasar</span>
+        </div>
+        <div class="definisi-grid">
+            <div class="def-item">
+                <div class="def-icon"><i class="fas fa-rule"></i></div>
+                <div class="def-title">Pengertian</div>
+                <div class="def-text">
+                    Segala sesuatu yang dapat <strong>diukur</strong> dengan alat ukur, memiliki <strong>satuan</strong>, dan nilainya dapat dinyatakan dengan <strong>angka</strong>.
+                </div>
+                <div class="def-highlight">Contoh: panjang, massa, waktu</div>
+            </div>
+            <div class="def-item">
+                <div class="def-icon"><i class="fas fa-ruler-combined"></i></div>
+                <div class="def-title">Syarat Besaran</div>
+                <div class="def-text">
+                    1. Dapat <strong>diukur</strong> (ada alat ukurnya)<br>
+                    2. Memiliki <strong>satuan</strong> (standar pembanding)<br>
+                    3. Nilai dinyatakan dengan <strong>angka</strong>
+                </div>
+                <div class="def-highlight">Harus memenuhi ketiganya</div>
+            </div>
+            <div class="def-item">
+                <div class="def-icon"><i class="fas fa-arrows-left-right"></i></div>
+                <div class="def-title">Sistem Satuan</div>
+                <div class="def-text">
+                    <strong>SI</strong> (Satuan Internasional) — MKS<br>
+                    <strong>CGS</strong> (Centimeter-Gram-Second)<br>
+                    <strong>Inggris</strong> (feet-pound-second)
+                </div>
+                <div class="def-highlight">SI digunakan secara global</div>
+            </div>
         </div>
     </div>
 
@@ -1076,7 +1206,7 @@
             </div>
         </div>
 
-        <!-- FUNGSI LAIN ANALISIS DIMENSI dengan banyak contoh dan jawaban tersembunyi -->
+        <!-- FUNGSI LAIN ANALISIS DIMENSI -->
         <div class="fungsi-lain-box">
             <h3><i class="fas fa-expand-arrows-alt" style="color:#b8860b; margin-right:0.5rem;"></i> Fungsi Lain Analisis Dimensi (Lengkap dengan Contoh)</h3>
             <p style="font-size:1.05rem; color:#1a1a2e; margin-bottom:1rem;">Berikut adalah fungsi-fungsi lain dari analisis dimensi dengan beberapa contoh. Klik tombol untuk melihat pembahasan.</p>
