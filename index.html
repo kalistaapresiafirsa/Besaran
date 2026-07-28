@@ -97,7 +97,7 @@
             color: #ffd700;
         }
 
-        /* DEFINISI BESARAN - KOTAK PENGANTAR */
+        /* DEFINISI BESARAN */
         .definisi-box {
             background: #ffffff;
             border-radius: 20px;
@@ -177,6 +177,109 @@
             font-size: 0.95rem;
             display: inline-block;
             margin-top: 0.3rem;
+        }
+
+        /* DIMENSI BESARAN - PENJELASAN */
+        .dimensi-penjelasan-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 3px solid #d4c5a9;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .dimensi-penjelasan-box .dp-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .dimensi-penjelasan-box .dp-header i {
+            font-size: 2.5rem;
+            color: #b8860b;
+        }
+
+        .dimensi-penjelasan-box .dp-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a1a2e;
+        }
+
+        .dimensi-penjelasan-box .dp-header .badge-dp {
+            background: #1a1a2e;
+            color: #ffd700;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            margin-left: auto;
+            border: 2px solid #ffd700;
+        }
+
+        .dp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .dp-item {
+            background: #faf6ef;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid #e8d5b5;
+        }
+
+        .dp-item .dp-icon {
+            font-size: 2rem;
+            color: #b8860b;
+            margin-bottom: 0.5rem;
+        }
+
+        .dp-item .dp-title {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dp-item .dp-text {
+            font-size: 1.05rem;
+            color: #2a2a3e;
+        }
+
+        .dp-item .dp-example {
+            background: #e8d5b5;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #1a1a2e;
+        }
+
+        .dp-item .dp-example .highlight-dp {
+            color: #b8860b;
+            font-weight: 800;
+        }
+
+        .dp-item .dp-warning {
+            background: #fde8e8;
+            border-left: 4px solid #cc3333;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: #991111;
+        }
+
+        .dp-item .dp-warning i {
+            margin-right: 0.5rem;
         }
 
         /* GRID UTAMA */
@@ -965,6 +1068,9 @@
             .definisi-grid {
                 grid-template-columns: 1fr 1fr;
             }
+            .dp-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -979,6 +1085,9 @@
                 gap: 1rem;
             }
             .definisi-grid {
+                grid-template-columns: 1fr;
+            }
+            .dp-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -1015,6 +1124,9 @@
                 padding: 1.2rem;
             }
             .definisi-box {
+                padding: 1.2rem;
+            }
+            .dimensi-penjelasan-box {
                 padding: 1.2rem;
             }
             .sim-row {
@@ -1082,6 +1194,64 @@
                     <strong>Inggris</strong> (feet-pound-second)
                 </div>
                 <div class="def-highlight">SI digunakan secara global</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIMENSI BESARAN - PENJELASAN LENGKAP -->
+    <div class="dimensi-penjelasan-box">
+        <div class="dp-header">
+            <i class="fas fa-cube"></i>
+            <h2>Apa itu Dimensi Besaran?</h2>
+            <span class="badge-dp">Penting!</span>
+        </div>
+        <div class="dp-grid">
+            <div class="dp-item">
+                <div class="dp-icon"><i class="fas fa-question-circle"></i></div>
+                <div class="dp-title">Pengertian Dimensi</div>
+                <div class="dp-text">
+                    <strong>Dimensi</strong> adalah cara menyatakan bagaimana suatu besaran tersusun dari besaran-besaran pokok. Dimensi menunjukkan hubungan antara suatu besaran dengan besaran pokok melalui <strong>pangkat</strong> (eksponen).
+                </div>
+                <div class="dp-example">
+                    Contoh: Kecepatan = <span class="highlight-dp">[L][T]⁻¹</span><br>
+                    Berarti kecepatan tersusun dari panjang (L) pangkat 1 dan waktu (T) pangkat -1
+                </div>
+            </div>
+
+            <div class="dp-item">
+                <div class="dp-icon"><i class="fas fa-brackets-square"></i></div>
+                <div class="dp-title">Kenapa Pakai Kurung Siku <strong>[ ]</strong>?</div>
+                <div class="dp-text">
+                    Kurung siku <strong>[ ]</strong> digunakan sebagai <strong>notasi khusus</strong> untuk membedakan dimensi dengan besaran biasa. Ini adalah <strong>kesepakatan internasional</strong> dalam fisika.
+                </div>
+                <div class="dp-example">
+                    <strong>Bukan:</strong> L · T⁻¹ (ini seperti perkalian biasa)<br>
+                    <strong>Yang benar:</strong> <span class="highlight-dp">[L][T]⁻¹</span> (ini menunjukkan dimensi)
+                </div>
+                <div class="dp-warning">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Perhatian!</strong> [L] dibaca "dimensi panjang", bukan "satuan panjang" (meter).
+                </div>
+            </div>
+
+            <div class="dp-item">
+                <div class="dp-icon"><i class="fas fa-ban"></i></div>
+                <div class="dp-title">Kenapa Bentuknya Tidak Boleh Pecahan?</div>
+                <div class="dp-text">
+                    Dalam penulisan dimensi, <strong>pangkat negatif</strong> digunakan untuk menyatakan pembagian. Ini lebih <strong>sederhana</strong> dan <strong>universal</strong> daripada menggunakan bentuk pecahan.
+                </div>
+                <div class="dp-example">
+                    <strong>Salah ❌:</strong> <span style="color:#cc3333;">[L]/[T]</span> (bentuk pecahan)<br>
+                    <strong>Benar ✅:</strong> <span class="highlight-dp">[L][T]⁻¹</span> (pangkat negatif)
+                </div>
+                <div class="dp-example" style="background:#e8f5e8; border-left:4px solid #2d7d2d;">
+                    <strong>Alasan:</strong><br>
+                    • Lebih <strong>mudah</strong> dioperasikan secara aljabar<br>
+                    • Menghindari <strong>kekeliruan</strong> dengan pembagian biasa<br>
+                    • <strong>Standar</strong> internasional (ISO dan BIPM)
+                </div>
+                <div class="dp-warning">
+                    <i class="fas fa-lightbulb" style="color:#b8860b;"></i> <strong>Ingat:</strong> [T]⁻¹ = 1/[T] (sama dengan per sekon atau frekuensi)
+                </div>
             </div>
         </div>
     </div>
